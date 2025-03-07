@@ -1,0 +1,39 @@
+.header {
+  position: absolute;
+  width: 100%;
+  top: 32px;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo-wrap {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.header-logo-img {
+  border-radius: 19px;
+}
+
+.header-logo-text {
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.header-menu {
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  width: 67px;
+  height: 39px;
+  cursor: pointer;
+}
+.header-link {
+  border-radius: 60px;
+  padding: 18px 24px;
+}
