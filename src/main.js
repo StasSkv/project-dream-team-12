@@ -4,6 +4,8 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 import './js/header';
 import './js/hero';
 import './js/about-me';
