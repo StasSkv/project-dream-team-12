@@ -49,4 +49,101 @@ img {
     width: 68px;
     height: 68px;
   }
+  /* Стили для левой стрелки */
+.swiper-button-prev {
+    border: 1px solid rgba(250, 250, 250, 0.2);
+    border-radius: 60px;
+    padding: 18px;
+    width: 68px;
+    height: 68px;
+  }
+  /* Стили для кнопок навигации */
+.swiper-button-prev, .swiper-button-next {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .swiper-button-prev:hover, .swiper-button-next:hover,
+  .swiper-button-prev:focus, .swiper-button-next:focus {
+    opacity: 0.8;
+  }
+  
+  /* Стили для неактивных кнопок */
+  .swiper-button-prev.disabled, .swiper-button-next.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Стили для кнопки "See project" */
+  .project-button {
+    background-color: var(--red-accent);
+    color: var(--main-text);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .project-button:hover, .project-button:focus {
+    background-color: var(--main-text);
+    color: var(--red-accent);
+  }
+  
+  /* Стили для правой стрелки */
+  .swiper-button-next {
+    border: 1px solid rgba(250, 250, 250, 0.5);
+    border-radius: 60px;
+    padding: 18px;
+    width: 68px;
+    height: 68px;
+  }
+  
+  /* Стили для левой стрелки */
+  .swiper-button-prev {
+    border: 1px solid rgba(250, 250, 250, 0.2);
+    border-radius: 60px;
+    padding: 18px;
+    width: 68px;
+    height: 68px;
+  }
+  
+  /* Стили для секций */
+  .container {
+    margin-bottom: 96px;
+  }
+  
+  /* Отступ заголовка от карточек */
+  .projects-title {
+    margin-bottom: 32px;
+  }
+  
+  /* Стили для карточки */
+  .project-card {
+    width: 704px;
+    height: 1191px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-content {
+    background-color: #fafafa;
+    height: 566px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .project-image-wrapper {
+    background-color: #242527;
+    height: 625px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   
