@@ -1,0 +1,19 @@
+:root {
+    --font-medium: 'Inter Tight', sans-serif;
+    --font-semibold: 'Inter Tight', sans-serif;
+}
+
+body {
+    font-family: var(--font-medium);
+}
+
+h1 {
+    font-family: var(--font-semibold);
+}
+
+:root {
+    --background: #1C1D20;
+    --cards: #242527;
+    --read-accent: #ED3B44;
+    --main-text: #FAFAFA;
+}
