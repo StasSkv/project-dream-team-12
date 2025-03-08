@@ -108,6 +108,10 @@ img {
   
   /* Стили для кнопки "See project" */
   .project-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background-color: var(--red-accent);
     color: var(--main-text);
     border-radius: 60px;
@@ -119,8 +123,8 @@ img {
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    margin-top: 32px;
   }
+  
   
   /* Стили для контейнера изображения */
   .project-image-wrapper {
