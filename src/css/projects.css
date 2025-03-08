@@ -33,11 +33,11 @@ img {
     font-size: 16px;
     line-height: 150%;
     letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: var(--background); 
-    text-shadow: rgba(250, 250, 250, 0.4);
+    text-transform: uppercase; 
+    color: rgba(250, 250, 250, 0.4);
     margin-bottom: 32px; /* Отступ вниз */
-    text-align: left; 
+    text-align: left;
+    margin-top: 64px;
 }
 
   
