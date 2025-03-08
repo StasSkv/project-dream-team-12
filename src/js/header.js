@@ -29,7 +29,11 @@ function openModalMenu() {
 refs.modal.addEventListener('click', closeModalMenu);
 
 function closeModalMenu(event) {
-  if (event.target.closest('.header-modal-svg')) {
+  if (
+    event.target.closest('.header-modal-svg') ||
+    event.target.closest('.header-modal-menu-item') ||
+    event.target.closest('.header-modal-link')
+  ) {
     refs.modal.classList.remove('modal-is-visible');
     document.body.classList.remove('no-scroll');
   }
