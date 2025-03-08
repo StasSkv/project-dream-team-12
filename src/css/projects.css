@@ -215,23 +215,22 @@ img {
     flex-grow: 1;
   }
 
-/* Контейнер для кастомных кнопок */
+/* Контейнер для кнопок под каруселью */
 .swiper-navigation {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px; 
-    margin-top: 32px; 
+    gap: 12px; /* Отступ между стрелками */
+    margin-top: 32px; /* Отступ под каруселью */
 }
 
 /* Общие стили для стрелок */
 .swiper-button-prev,
 .swiper-button-next {
-    border: 1px solid rgba(250, 250, 250, 0.5);
-    border-radius: 60px;
-    padding: 14px;
-    width: 52px;
-    height: 52px;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 2px solid rgba(250, 250, 250, 0.5); /* Белая обводка */
     background: transparent;
     display: flex;
     align-items: center;
@@ -241,27 +240,26 @@ img {
 }
 
 /* Стиль для неактивных кнопок */
-.swiper-button-prev.disabled,
-.swiper-button-next.disabled {
-    border: 1px solid rgba(250, 250, 250, 0.2);
-    border-radius: 60px;
-    padding: 14px;
-    width: 52px;
-    height: 52px;
+.swiper-button-prev:disabled,
+.swiper-button-next:disabled {
+    border: 2px solid rgba(250, 250, 250, 0.2); /* Менее заметная обводка */
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /* Иконка внутри кнопки */
 .swiper-button-prev svg,
 .swiper-button-next svg {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     fill: none;
     stroke: rgba(250, 250, 250, 0.8);
     stroke-width: 2;
 }
+
 /* Эффект при наведении */
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
+.swiper-button-prev:hover:not(:disabled),
+.swiper-button-next:hover:not(:disabled) {
     opacity: 1;
     transform: scale(1.1);
 }
