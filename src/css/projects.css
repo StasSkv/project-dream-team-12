@@ -17,3 +17,9 @@ h1 {
     --read-accent: #ED3B44;
     --main-text: #FAFAFA;
 }
+
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
