@@ -66,6 +66,14 @@ img {
     display: flex;
     gap: 6px;
   }
+  /* Стили для тегов */
+.project-tags .tag {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: var(--background);
+  }
   
   .project-tags .tag {
     border: 1px solid rgba(28, 29, 32, 0.2);
@@ -206,7 +214,17 @@ img {
     justify-content: flex-start;
     align-items: flex-start;
   }
-  
+  /* Стили для нижней части карточки */
+.project-image-wrapper {
+    background-color: #242527;
+    border-radius: 0 0 24px 24px;
+    width: 343px;
+    height: 395px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
   /* Стили для кнопки "See project" */
   .project-button {
     background-color: var(--red-accent);
