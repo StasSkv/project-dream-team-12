@@ -128,15 +128,12 @@ img {
   }
   
   .project-tags .tag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 1px solid rgba(28, 29, 32, 0.2);
     border-radius: 60px;
     padding: 18px;
+    width: 80px;
     height: 55px;
-    font-size: 14px;
-    font-weight: 600;
+    white-space: nowrap;
   }
   
   .project-tags .tag:nth-child(1) {
