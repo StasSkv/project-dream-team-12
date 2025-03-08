@@ -5,9 +5,7 @@ img {
     max-height: 100%;
 }
 /* Стили для секции Projects (мобильная версия) */
-.projects-section {
-   
-   
+.projects-section {  
     width: 343px;
     height: 868px;
     margin: 0 auto;
