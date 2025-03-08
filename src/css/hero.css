@@ -129,6 +129,12 @@
   transition: border-color 0.3s ease-in-out;
 }
 
+.hero-social-networks:hover,
+.hero-social-networks:focus {
+  border-color: var(--main-text);
+  outline: none;
+}
+
 @media screen and (min-width: 768px) {
   .hero-social-networks {
     padding: 18px 20px;
@@ -136,12 +142,6 @@
     height: 55px;
     font-size: 16px;
   }
-}
-
-.hero-social-networks:hover,
-.hero-social-networks:focus {
-  border-color: var(--main-text);
-  outline: none;
 }
 
 .hero-social-networks-mail {
