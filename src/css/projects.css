@@ -215,22 +215,26 @@ img {
     flex-grow: 1;
   }
 
- /* Контейнер для стрелок (под каруселью) */
+/* Контейнер для кастомных кнопок */
 .swiper-navigation {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
-    margin-top: 32px; /* Отступ от карусели */
+    gap: 12px; /* Отступ между стрелками */
+    margin-top: 32px; /* Отступ под каруселью */
 }
 
 /* Общие стили для стрелок */
 .swiper-button-prev,
 .swiper-button-next {
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    border: 2px solid rgba(250, 250, 250, 0.5); /* Белая обводка */
+    border: 1px solid rgba(250, 250, 250, 0.5);
+    border-radius: 60px;
+    padding: 14px;
+    width: 52px;
+    height: 52px;
+   
+    
+    
     background: transparent;
     display: flex;
     align-items: center;
@@ -242,9 +246,11 @@ img {
 /* Стиль для неактивных кнопок */
 .swiper-button-prev.disabled,
 .swiper-button-next.disabled {
-    border: 2px solid rgba(250, 250, 250, 0.2); /* Менее заметная обводка */
-    opacity: 0.5;
-    cursor: not-allowed;
+    border: 1px solid rgba(250, 250, 250, 0.2);
+    border-radius: 60px;
+    padding: 14px;
+    width: 52px;
+    height: 52px;
 }
 
 /* Иконка внутри кнопки */
@@ -263,4 +269,3 @@ img {
     opacity: 1;
     transform: scale(1.1);
 }
- 
