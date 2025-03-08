@@ -1,72 +1,67 @@
-body {
-        margin: 0;
-        font-family: "Pridi", sans-serif;
-        background: radial-gradient(circle, #2c3e50, #000);
-        overflow-x: hidden;
-    }
+
     
     .covers {
-        position: relative;
-        padding: 50px 0;
+     position: relative;
+     padding: 50px 0;
     }
     
     .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
+     position: absolute;
+     width: 1px;
+     height: 1px;
+     padding: 0;
+     margin: -1px;
+     overflow: hidden;
+     clip: rect(0, 0, 0, 0);
+     border: 0;
     }
     
-    .marquee {
-        display: flex;
-        gap: 20px;
-        white-space: nowrap;
-        overflow: hidden;
-        width: 100%;
+    .covers__list {
+    display: flex;
+    gap: 20px;
+     white-space: nowrap;
+     overflow: hidden;
+     width: 100%;
     }
     
-    .marquee__inner {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #FFDC00;
-        padding: 10px 20px;
-        font-size: 24px;
-        font-weight: 600;
-        text-transform: uppercase;
+    .covers__item {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #FFDC00;
+     padding: 10px 20px;
+     font-size: 24px;
+     font-weight: 600;
+     text-transform: uppercase;
     }
-    .marquee__inner img {
+    .covers__item img {
         width: 100%;  /* Щоб зображення було адаптивним */
         height: auto;
         object-fit: cover;
-        border-radius: 10px; /* Якщо потрібно закруглити краї */
+        border-radius: 10px; 
     }
     
-    @keyframes marquee-left {
-        from {
-            transform: translateX(100%);
-        }
-        to {
-            transform: translateX(-100%);
-        }
+    @keyframes .covers-left {
+     from {
+     transform: translateX(100%);
+     }
+     to {
+     transform: translateX(-100%);
+     }
     }
     
     js
     document.addEventListener("DOMContentLoaded", () => {
-        const marquee = document.querySelector(".marquee");
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    marquee.style.animation = "marquee-left 10s linear infinite";
-                } else {
-                    marquee.style.animationPlayState = "paused";
-                }
-            });
-        }, { threshold: 0.1 });
-        observer.observe(marquee);
+     const covers = document.querySelector(".covers");
+     const observer = new IntersectionObserver(entries => {
+     entries.forEach(entry => {
+     if (entry.isIntersecting) {
+     covers.style.animation = "covers-left 10s linear infinite";
+     } else {
+     covers.style.animationPlayState = "paused";
+     }
+     });
+     }, { threshold: 0.1 });
+     observer.observe(covers);
     });
     
