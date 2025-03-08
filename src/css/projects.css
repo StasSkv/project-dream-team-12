@@ -243,4 +243,52 @@ img {
     gap: 20px;
     margin-top: 32px;
   }
-  
+ /* Контейнер для стрелок (под каруселью) */
+.swiper-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px; /* Отступ от карусели */
+}
+
+/* Общие стили для стрелок */
+.swiper-button-prev,
+.swiper-button-next {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 2px solid rgba(250, 250, 250, 0.5); /* Белая обводка */
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Стиль для неактивных кнопок */
+.swiper-button-prev.disabled,
+.swiper-button-next.disabled {
+    border: 2px solid rgba(250, 250, 250, 0.2); /* Менее заметная обводка */
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Иконка внутри кнопки */
+.swiper-button-prev svg,
+.swiper-button-next svg {
+    width: 32px;
+    height: 32px;
+    fill: none;
+    stroke: rgba(250, 250, 250, 0.8);
+    stroke-width: 2;
+}
+
+/* Эффект при наведении */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+ 
