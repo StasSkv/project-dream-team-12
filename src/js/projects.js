@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         breakpoints: {
             768: {
-                slidesPerView: 2,
+                slidesPerView: 1, // Карточки должны быть по одной
                 spaceBetween: 20,
             },
             1024: {
-                slidesPerView: 3,
+                slidesPerView: 1, // Карточки остаются по одной
                 spaceBetween: 30,
             },
         },
@@ -32,13 +32,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Перемещаем стрелки вниз под пагинацию
+    // Убедимся, что стрелки появляются под слайдером
+    const swiperContainer = document.querySelector(".swiper-container");
     const navigationContainer = document.querySelector(".swiper-navigation");
     const paginationContainer = document.querySelector(".swiper-pagination");
 
-    if (paginationContainer && navigationContainer) {
-        paginationContainer.insertAdjacentElement("afterend", navigationContainer);
+    if (swiperContainer && navigationContainer && paginationContainer) {
+        swiperContainer.insertAdjacentElement("afterend", navigationContainer);
     }
+
+    // Проверяем, добавлены ли классы Swiper и показываются ли стрелки
+    setTimeout(() => {
+        const prevButton = document.querySelector(".swiper-button-prev");
+        const nextButton = document.querySelector(".swiper-button-next");
+
+        if (prevButton && nextButton) {
+            prevButton.style.display = "flex";
+            nextButton.style.display = "flex";
+        }
+    }, 500);
 });
 
   
