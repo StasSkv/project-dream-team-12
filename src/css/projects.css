@@ -22,11 +22,36 @@ img {
     opacity: 0.5;
     cursor: not-allowed;
   }
+  /* Стили для заголовка проекта */
+.project-title {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: var(--background);
+    margin-top: 164px;
+  }
   
+  /* Стили для контейнера белой части */
+  .project-content {
+    background-color: #fafafa;
+    min-height: 566px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 64px;
+  }
   /* Стили для кнопки "See project" */
   .project-button {
     background-color: var(--red-accent);
     color: var(--main-text);
+    border-radius: 60px;
+    padding: 18px 50px;
+    width: 177px;
+    height: 55px;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
