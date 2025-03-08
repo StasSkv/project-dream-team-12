@@ -32,7 +32,9 @@ img {
     color: var(--background);
     margin-top: 164px;
   }
-  
+  .project-content {
+    position: relative;
+  }
   /* Стили для контейнера белой части */
   .project-content {
     background-color: #fafafa;
