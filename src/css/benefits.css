@@ -1,0 +1,122 @@
+.container-benefits {
+    margin-bottom: 64px;
+    background: var(--background);
+}
+@media screen and (min-width: 768px) {
+    .container-benefits {
+        margin-bottom: 96px;
+    } 
+}
+@media screen and (min-width: 1440px) {
+    .container-benefits {
+        margin-bottom: 164px;
+    } 
+}
+
+.title-benefits {
+    font-family: var(--font-semibold);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--cards);
+    margin-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+    .title-benefits {
+    }
+}
+@media screen and (min-width: 1440px)  {
+    .title-benefits {
+        margin-bottom: 651px;
+    }
+}
+.content {
+    width: 100%;
+    height: 1215px;
+}
+@media screen and (min-width: 768px) {
+    .content {
+        width: 704px;
+        height: 675px;
+    }
+}
+@media screen and (min-width: 1440px)  {
+    .content {
+        width: 680px;
+        height: 675px;
+    }
+}
+.content-list {
+
+}
+@media screen and (min-width: 768px) {
+    .content-list {
+    }
+}
+@media screen and (min-width: 1440px)  {
+    .content-list {
+    }
+}
+.content-list-item {
+    border-radius: 20px;
+    width: 344px;
+    height: 270px;
+}
+@media screen and (min-width: 768px) {
+    .content-list-item {
+    }
+}
+@media screen and (min-width: 1440px)  {
+    .content-list-item {
+    }
+}
+.icon-block {
+}
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1440px)  {
+
+}
+.content-icon {
+}
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1440px) {
+
+}
+.subtitle-content {
+}
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1440px) {
+    
+}
+.content-text {
+}
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1440px) {
+    
+}
+.content-btn {
+}
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1440px) {
+    
+}
+.content-link {
+}
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1440px) {
+    
+}
