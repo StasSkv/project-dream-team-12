@@ -146,4 +146,40 @@ img {
     align-items: center;
     justify-content: center;
   }
+ /* Стили для project-tags */
+.project-tags {
+    display: flex;
+    gap: 6px;
+    position: absolute;
+    top: 64px;
+    left: 64px;
+  }
   
+  .project-tags .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(28, 29, 32, 0.2);
+    border-radius: 60px;
+    padding: 18px;
+    height: 55px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .project-tags .tag:nth-child(1) {
+    width: 80px;
+  }
+  
+  .project-tags .tag:nth-child(2) {
+    width: 57px;
+  }
+  
+  .project-tags .tag:nth-child(3) {
+    width: 94px;
+  }
+  
+  .project-tags .tag:nth-child(4) {
+    width: 63px;
+  }
+   
