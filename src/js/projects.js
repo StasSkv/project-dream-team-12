@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Убираем точки пагинации (если есть)
-    const paginationContainer = document.querySelector(".swiper-pagination");
-    if (paginationContainer) {
-        paginationContainer.remove();
-    }
+    // Удаляем встроенные кнопки Swiper из DOM
+    const defaultPrev = document.querySelector(".swiper-button-prev");
+    const defaultNext = document.querySelector(".swiper-button-next");
+    if (defaultPrev) defaultPrev.remove();
+    if (defaultNext) defaultNext.remove();
 
-    // Перемещаем кнопки под карусель
+    // Перемещаем кастомные кнопки под карусель
     const swiperContainer = document.querySelector(".swiper-container");
     const navigationContainer = document.querySelector(".swiper-navigation");
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         swiperContainer.insertAdjacentElement("afterend", navigationContainer);
     }
 
-    // Показываем кастомные стрелки
+    // Принудительно загружаем спрайт и проверяем SVG
     setTimeout(() => {
         const prevButton = document.querySelector(".swiper-button-prev");
         const nextButton = document.querySelector(".swiper-button-next");
@@ -49,6 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
             prevButton.style.display = "flex";
             nextButton.style.display = "flex";
         }
+
+        // Проверяем, загружается ли спрайт
+        const svgTest = document.createElement("img");
+        svgTest.src = "sprite.svg";
+        svgTest.onerror = () => console.error("Ошибка загрузки спрайта");
+        svgTest.onload = () => console.log("Спрайт загружен успешно");
+        document.body.appendChild(svgTest);
     }, 500);
 });
 
