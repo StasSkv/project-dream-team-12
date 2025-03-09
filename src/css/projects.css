@@ -240,4 +240,7 @@ img {
         align-items: center;
         height: 813px;
     }
+    .swiper-container {
+        max-width: 100%; 
+    }
 }
