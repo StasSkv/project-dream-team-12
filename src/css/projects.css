@@ -314,4 +314,30 @@ img {
         width: 32px;
         height: 32px;
     }
+
+    .project-card {
+        width: 704px;
+        height: auto;
+    }
+
+    .project-button {
+        padding: 18px 50px;
+        width: 177px;
+        height: 55px;
+    }
+    .project-title-in{
+       font-weight: 500;
+       font-size: 44px;
+       line-height: 100%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .project-card {
+        width: 1376px;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+    
+    }
 }
