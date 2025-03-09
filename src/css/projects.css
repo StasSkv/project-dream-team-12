@@ -22,7 +22,7 @@ img {
 /* Ограничение размеров карточек */
 .swiper-slide {
     width: 100%;
-    max-width: 343px;
+    min-width: 343px;
 }
 
 /* Заголовок секции */
@@ -221,7 +221,7 @@ img {
         flex-direction: row !important;
         width: 100%;
         max-width: 1376px;
-        height: 625px;
+        height: 813px;
         align-items: stretch;
         justify-content: space-between;
     }
@@ -238,5 +238,6 @@ img {
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 813px;
     }
 }
