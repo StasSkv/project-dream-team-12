@@ -96,9 +96,6 @@ img {
     font-size: 16px;
     letter-spacing: -0.02em;
     color: var(--background);
-}
-
-.project-tags .tag {
     border: 1px solid rgba(28, 29, 32, 0.2);
     border-radius: 60px;
     padding: 18px;
@@ -334,10 +331,17 @@ img {
 
 @media (min-width: 1440px) {
     .project-card {
-        width: 1376px;
-        height: auto;
         display: flex;
-        flex-direction: row;
-    
+        flex-direction: row; 
+        width: 100%;
+        max-width: 1376px;
+    }
+
+    .project-content {
+        width: 50%; 
+    }
+
+    .project-image-wrapper {
+        width: 50%; 
     }
 }
