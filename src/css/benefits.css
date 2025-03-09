@@ -144,7 +144,7 @@
     }
 }
 .subtitle-content {
-    font-family: var(--font-semibold);
+    font-family: var(--font-medium);
     font-weight: 600;
     font-size: 20px;
     line-height: 1.5;
