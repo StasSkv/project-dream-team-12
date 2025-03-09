@@ -2,14 +2,14 @@
   <defs>
     <!-- Правая стрелка -->
     <symbol id="icon-arrow-narrow-right" viewBox="0 0 32 32">
-      <path fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M5.333 16h21.333"></path>
-      <path fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M18.666 8l8 8-8 8"></path>
-    </symbol>  
-
+      <path fill="none" stroke="#fafafa" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M5.333 16h21.333"/>
+      <path fill="none" stroke="#fafafa" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M18.666 8l8 8-8 8"/>
+    </symbol>
     <!-- Левая стрелка -->
     <symbol id="icon-arrow-left" viewBox="0 0 32 32">
-      <path fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M26.667 16h-21.333"></path>
-      <path fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M13.333 24l-8-8 8-8"></path>
+      <path fill="none" stroke="#fafafa" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M26.667 16h-21.333"/>
+      <path fill="none" stroke="#fafafa" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M13.333 24l-8-8 8-8"/>
     </symbol>
   </defs>
 </svg>
+
