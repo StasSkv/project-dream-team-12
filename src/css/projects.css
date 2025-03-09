@@ -261,7 +261,7 @@ img {
       display: inline-block;
       width: 1em;
       height: 1em;
-      stroke-width: 0;
+      stroke-width: 2;
       stroke: #fafafa;
       fill: #fafafa;
     }
