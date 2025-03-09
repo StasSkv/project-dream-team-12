@@ -217,13 +217,14 @@ img {
 /* ✅ Десктоп (1440px+) */
 @media (min-width: 1440px) {
     .project-card {
-        display: flex !important; 
+        display: flex !important;
         flex-direction: row !important;
+        align-items: stretch;
+        justify-content: space-between;
         width: 100%;
         max-width: 1376px;
         height: 813px;
-        align-items: stretch;
-        justify-content: space-between;
+        margin-left: 0 !important; /* ✅ Убираем возможные отступы */
     }
 
     .project-content {
@@ -241,11 +242,26 @@ img {
         height: 813px;
     }
     .swiper-container {
-        max-width: 100%; 
+        
+        max-width: 100vw !important; 
+    }
+    .swiper-wrapper {
+        display: flex !important;
+        align-items: flex-start; /* ✅ Убираем центрирование */
+        justify-content: flex-start !important; /* ✅ Прижимаем карточку влево */
+        height: 813px !important; /* ✅ Фиксируем высоту */
     }
     .project-image-wrapper img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+    .swiper-slide {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch;
+        justify-content: flex-start; /* ✅ Двигаем влево */
+        width: 1376px !important;
+        height: 813px !important;
     }
 }
