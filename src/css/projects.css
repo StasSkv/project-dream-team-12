@@ -217,8 +217,8 @@ img {
 /* ✅ Десктоп (1440px+) */
 @media (min-width: 1440px) {
     .project-card {
-        display: flex;
-        flex-direction: row;
+        display: flex !important; 
+        flex-direction: row !important;
         width: 100%;
         max-width: 1376px;
         height: 625px;
