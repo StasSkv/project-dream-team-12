@@ -5,10 +5,11 @@ import 'swiper/css/pagination';
 
 document.addEventListener("DOMContentLoaded", function () {
     const swiperContainer = document.querySelector(".swiper-container");
+    const swiperWrapper = document.querySelector(".swiper-wrapper");
     const prevButton = document.querySelector(".swiper-button-prev");
     const nextButton = document.querySelector(".swiper-button-next");
 
-    if (!swiperContainer || !prevButton || !nextButton) {
+    if (!swiperContainer || !swiperWrapper || !prevButton || !nextButton) {
         console.error("Ошибка: Один из элементов Swiper не найден.");
         return;
     }
@@ -83,28 +84,39 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Обновление макета карточек
+    // ✅ Исправление разметки, чтобы контейнер не схлопывался
     function updateSlideLayout() {
         const slides = document.querySelectorAll(".swiper-slide");
-        slides.forEach(slide => {
-            if (window.innerWidth >= 1440) {
+        if (window.innerWidth >= 1440) {
+            swiperWrapper.style.display = "flex";
+            swiperWrapper.style.alignItems = "center";
+            swiperWrapper.style.height = "813px"; // ✅ Фиксируем высоту всего контейнера
+
+            slides.forEach(slide => {
                 slide.style.display = "flex";
                 slide.style.flexDirection = "row";
                 slide.style.width = "1376px";
-                slide.style.height = "813px";
+                slide.style.height = "813px"; // ✅ Фиксируем высоту карточек
                 slide.style.alignItems = "stretch";
-            } else {
+            });
+        } else {
+            swiperWrapper.style.display = "";
+            swiperWrapper.style.height = "";
+
+            slides.forEach(slide => {
                 slide.style.display = "";
                 slide.style.flexDirection = "";
                 slide.style.width = "";
                 slide.style.height = "";
                 slide.style.alignItems = "";
-            }
-        });
+            });
+        }
     }
 
+    // Вызываем обновление разметки при изменении размера экрана
     window.addEventListener("resize", updateSlideLayout);
 });
+
 
 
 
