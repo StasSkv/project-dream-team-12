@@ -169,15 +169,17 @@ html {
   pointer-events: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 999;
-  background-image: url(/img/header/glass-background@2x.webp),
-    url(/img/header/main-background@2x.webp);
- 
+background-image: url(/img/header/hero@1x.webp);
+  background-position: -140px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @media screen and (min-device-pixel-ratio: 2),
   screen and (min-resolution: 192dpi),
   screen and (min-resolution: 2dppx) {
   .header-modal {
+    background-image: url(/img/header/hero@2x.webp);
   }
 }
 
