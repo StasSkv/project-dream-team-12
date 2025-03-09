@@ -239,7 +239,7 @@ img {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 813px;
+        height: 625px;
     }
     .swiper-container {
         
@@ -262,6 +262,6 @@ img {
         align-items: stretch;
         justify-content: flex-start; /* ✅ Двигаем влево */
         width: 1376px !important;
-        height: 813px !important;
+        height: 625px !important;
     }
 }
