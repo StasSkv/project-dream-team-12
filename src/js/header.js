@@ -27,7 +27,6 @@ function openModalMenu() {
 }
 
 refs.modal.addEventListener('click', closeModalMenu);
-
 function closeModalMenu(event) {
   if (
     event.target.closest('.header-modal-svg') ||
