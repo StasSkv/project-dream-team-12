@@ -1,25 +1,8 @@
-.hero-wrapper {
-  max-width: 100%;
-  margin: 0 auto;
-  background-repeat: repeat-y;
+.hero-background {
+  background-image: url(/img/hero/background-image-mobile.webp);
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image: url(/img/hero/background-color.webp);
-}
-
-@media (min-resolution: 192dpi) {
-  .hero-background {
-    background-image: url(/img/hero/background-color-2x.webp);
-  }
-}
-
-.hero-background {
-  max-width: 375px;
-  margin: 0 auto;
-  background-image: url(/img/hero/background-image-mobile.webp);
-  background-repeat: repeat-y;
-  background-position: left, center;
-  background-size: contain, cover;
 }
 
 @media (min-resolution: 192dpi) {
@@ -30,7 +13,6 @@
 
 @media screen and (min-width: 768px) {
   .hero-background {
-    max-width: 768px;
     background-image: url(/img/hero/background-image-table.webp);
   }
 
@@ -43,7 +25,6 @@
 
 @media screen and (min-width: 1440px) {
   .hero-background {
-    max-width: 1440px;
     background-image: url(/img/hero/background-image-desctop.webp);
   }
 
