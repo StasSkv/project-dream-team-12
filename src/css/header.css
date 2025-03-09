@@ -171,7 +171,7 @@ html {
   pointer-events: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 999;
-  background-image: url(/img/header/hero@1x.webp);
+  background-image: url(/img/header/mod@1x.webp);
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -181,7 +181,7 @@ html {
   screen and (min-resolution: 192dpi),
   screen and (min-resolution: 2dppx) {
   .header-modal {
-    background-image: url(/img/header/hero@2x.webp);
+    background-image: url(/img/header/mod@2x.webp);
   }
 }
 
