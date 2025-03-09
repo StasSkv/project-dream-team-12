@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Инициализируем Swiper
+    // Инициализируем Swiper без встроенной навигации
     const swiper = new Swiper(".swiper-container", {
         slidesPerView: 1,
         spaceBetween: 10,
@@ -28,10 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 slidesPerView: 1,
                 spaceBetween: 30,
             },
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
         },
         on: {
             init: function () {
@@ -60,23 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Навешиваем обработчики кликов
+    prevButton.addEventListener("click", () => swiper.slidePrev());
+    nextButton.addEventListener("click", () => swiper.slideNext());
+
     // Перемещаем кастомные кнопки под карусель
     swiperContainer.insertAdjacentElement("afterend", navigationContainer);
-
-    // Принудительно загружаем спрайт и проверяем SVG
-    setTimeout(() => {
-        if (prevButton && nextButton) {
-            prevButton.style.display = "flex";
-            nextButton.style.display = "flex";
-        }
-
-        // Проверяем, загружается ли спрайт
-        const svgTest = document.createElement("img");
-        svgTest.src = "sprite.svg";
-        svgTest.onerror = () => console.error("Ошибка загрузки спрайта");
-        svgTest.onload = () => console.log("Спрайт загружен успешно");
-        document.body.appendChild(svgTest);
-    }, 500);
 });
 
   
