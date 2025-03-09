@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
     prevButton.classList.add("custom-swiper-button");
     nextButton.classList.add("custom-swiper-button");
 
-    // Инициализируем Swiper
+    // ✅ Инициализируем Swiper с фиксированным `slidesPerView: 1`
     const swiper = new Swiper(".swiper-container", {
-        slidesPerView: 1,
-        spaceBetween: 10,
+        slidesPerView: 1, // ✅ Показываем ТОЛЬКО ОДИН слайд, чтобы не было видимого второго
+        spaceBetween: 0, // ✅ Убираем лишние отступы между слайдами
         loop: false,
         keyboard: {
             enabled: true,
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 spaceBetween: 30,
             },
             1440: {
-                slidesPerView: "auto", // ✅ Позволяет карточкам растянуться на всю ширину
+                slidesPerView: 1, // ✅ Исправлено с `auto` на `1`
                 spaceBetween: 40,
             }
         },
@@ -84,25 +84,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Исправление разметки, чтобы контейнер не схлопывался
+    // ✅ Исправление разметки, чтобы следующий слайд НЕ был виден
     function updateSlideLayout() {
         const slides = document.querySelectorAll(".swiper-slide");
         if (window.innerWidth >= 1440) {
-            swiperWrapper.style.display = "flex";
-            swiperWrapper.style.alignItems = "center";
-            swiperWrapper.style.height = "813px"; // ✅ Фиксируем высоту всего контейнера
-
             slides.forEach(slide => {
                 slide.style.display = "flex";
                 slide.style.flexDirection = "row";
                 slide.style.width = "1376px";
-                slide.style.height = "813px"; // ✅ Фиксируем высоту карточек
+                slide.style.height = "813px"; // ✅ Переносим высоту сюда
                 slide.style.alignItems = "stretch";
             });
         } else {
-            swiperWrapper.style.display = "";
-            swiperWrapper.style.height = "";
-
             slides.forEach(slide => {
                 slide.style.display = "";
                 slide.style.flexDirection = "";
@@ -116,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Вызываем обновление разметки при изменении размера экрана
     window.addEventListener("resize", updateSlideLayout);
 });
+
 
 
 
