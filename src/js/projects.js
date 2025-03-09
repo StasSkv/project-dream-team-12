@@ -35,6 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 slidesPerView: 1,
                 spaceBetween: 30,
             },
+            1440: {
+                slidesPerView: "auto", // ✅ Позволяет карточкам растянуться на всю ширину
+                spaceBetween: 40,
+            }
         },
         navigation: {
             nextEl: ".swiper-button-next",
@@ -42,12 +46,16 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         on: {
             init: function () {
-                moveNavigationButtons(); // Перемещаем кнопки вниз
+                moveNavigationButtons();
                 updateNavigationButtons(this);
+                updateSlideLayout();
             },
             slideChange: function () {
                 updateNavigationButtons(this);
             },
+            resize: function () {
+                updateSlideLayout();
+            }
         },
     });
 
@@ -67,34 +75,36 @@ document.addEventListener("DOMContentLoaded", function () {
             swiperContainer.insertAdjacentElement("afterend", navigationContainer);
         }
 
-        // Проверяем, если кнопки уже внутри контейнера, не добавляем их повторно
         if (!navigationContainer.contains(prevButton)) {
             navigationContainer.appendChild(prevButton);
         }
         if (!navigationContainer.contains(nextButton)) {
             navigationContainer.appendChild(nextButton);
         }
-
-        function updateButtonSpacing() {
-            if (window.innerWidth > 767) {
-                prevButton.style.marginRight = "10px";
-                nextButton.style.marginLeft = "10px";
-            } else {
-                prevButton.style.marginRight = "6px";
-                nextButton.style.marginLeft = "6px";
-            }
-        }
-
-        // Устанавливаем начальные значения
-        updateButtonSpacing();
-        
-        // Добавляем обработчик изменения размера окна
-        window.addEventListener("resize", updateButtonSpacing);
     }
 
-    // Применяем transform: scaleX(1.2) к кнопкам
-    prevButton.style.transform = "scaleX(1.2)";
-    nextButton.style.transform = "scaleX(1.2)";
+    // ✅ Обновление макета карточек
+    function updateSlideLayout() {
+        const slides = document.querySelectorAll(".swiper-slide");
+        slides.forEach(slide => {
+            if (window.innerWidth >= 1440) {
+                slide.style.display = "flex";
+                slide.style.flexDirection = "row";
+                slide.style.width = "1376px";
+                slide.style.height = "813px";
+                slide.style.alignItems = "stretch";
+            } else {
+                slide.style.display = "";
+                slide.style.flexDirection = "";
+                slide.style.width = "";
+                slide.style.height = "";
+                slide.style.alignItems = "";
+            }
+        });
+    }
+
+    window.addEventListener("resize", updateSlideLayout);
 });
+
 
 
