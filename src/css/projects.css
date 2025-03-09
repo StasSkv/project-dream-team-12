@@ -74,14 +74,20 @@ img {
 .project-image-wrapper {
     background-color: #242527;
     border-radius: 0 0 24px 24px;
-    width: 343px;
+    width: 100%;
     height: 395px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-grow: 1;
 }
-
+.project-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+}
 /* Теги */
 .project-tags {
     display: flex;
@@ -253,10 +259,9 @@ img {
         height: 813px !important; /* ✅ Фиксируем высоту */
     }
     .project-image-wrapper img {
-        width: 100%;
+        width: auto;
         height: 100%;
         object-fit: cover;
-        border-radius: 0  24px 24px 0;
         
     }
     .swiper-slide {
