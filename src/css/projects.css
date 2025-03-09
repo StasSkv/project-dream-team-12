@@ -1,44 +1,46 @@
-
 img {
     display: block;
     max-width: 100%;
     max-height: 100%;
 }
+
 /* Стили для секции Projects (мобильная версия) */
-.projects-section {  
+.projects-section {
     width: 343px;
     height: 868px;
     margin: 0 auto;
     margin-bottom: 94px;
-  }
-  
-  /* Ограничение размеров слайдера */
-  .swiper-container {
+}
+
+/* Ограничение размеров слайдера */
+.swiper-container {
     width: 100%;
     max-width: 375px;
     margin: 0 auto;
     overflow: hidden;
-  }
-  
-  /* Ограничение размеров карточек */
-  .swiper-slide {
+}
+
+/* Ограничение размеров карточек */
+.swiper-slide {
     width: 100%;
     max-width: 343px;
-  }
-  
-  /* Заголовок секции (мобильная версия) */
-  .projects-title {
+}
+
+/* Заголовок секции (мобильная версия) */
+.projects-title {
     font-family: var(--font-medium);
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
     letter-spacing: -0.02em;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     color: rgba(250, 250, 250, 0.4);
-    margin-bottom: 32px; /* Отступ вниз */
+    margin-bottom: 32px;
+    /* Отступ вниз */
     text-align: left;
     margin-top: 64px;
 }
+
 .project-title-in {
     font-family: var(--font-family);
     font-weight: 500;
@@ -48,18 +50,18 @@ img {
     color: var(--background);
     margin-top: 96px;
 }
-  
-  /* Стили для карточки */
-  .project-card {
+
+/* Стили для карточки */
+.project-card {
     display: flex;
     flex-direction: column;
     width: 343px;
     height: 812px;
     border-radius: 24px;
     overflow: hidden;
-  }
-  
-  .project-content {
+}
+
+.project-content {
     background-color: #fafafa;
     min-height: 417px;
     width: 100%;
@@ -67,9 +69,9 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-  
-  .project-image-wrapper {
+}
+
+.project-image-wrapper {
     background-color: #242527;
     border-radius: 0 0 24px 24px;
     width: 343px;
@@ -77,47 +79,51 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  
-  /* Стили для тегов */
-  .project-tags {
+}
+
+
+/* Стили для тегов */
+.project-tags {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
-  }
-  /* Стили для тегов */
+}
+
+/* Стили для тегов */
 .project-tags .tag {
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
     letter-spacing: -0.02em;
     color: var(--background);
-  }
-  
-  .project-tags .tag {
+}
+
+.project-tags .tag {
     border: 1px solid rgba(28, 29, 32, 0.2);
     border-radius: 60px;
     padding: 18px;
     white-space: nowrap;
-  }
-  
-  .project-tags .tag:nth-child(1) {
+}
+
+.project-tags .tag:nth-child(1) {
     width: 80px;
-  }
-  .project-tags .tag:nth-child(2) {
+}
+
+.project-tags .tag:nth-child(2) {
     width: 57px;
-  }
-  .project-tags .tag:nth-child(3) {
+}
+
+.project-tags .tag:nth-child(3) {
     width: 94px;
-  }
-  .project-tags .tag:nth-child(4) {
+}
+
+.project-tags .tag:nth-child(4) {
     width: 63px;
-  }
-  
- 
-  /* Стили для кнопки "See project" */
-  .project-button {
+}
+
+
+/* Стили для кнопки "See project" */
+.project-button {
     display: flex;
     margin-top: 32px;
     align-items: center;
@@ -135,29 +141,30 @@ img {
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  }
-  
-  
-  /* Стили для контейнера изображения */
-  .project-image-wrapper {
+}
+
+
+/* Стили для контейнера изображения */
+.project-image-wrapper {
     background-color: #242527;
     height: 625px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-  }
-  
-  /* Стили для стрелок под слайдером */
-  .swiper-navigation {
+}
+
+/* Стили для стрелок под слайдером */
+.swiper-navigation {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     margin-top: 64px;
-  }
-  
-  .swiper-button-prev, .swiper-button-next {
+}
+
+.swiper-button-prev,
+.swiper-button-next {
     border: 1px solid rgba(250, 250, 250, 0.5);
     border-radius: 60px;
     padding: 18px;
@@ -166,44 +173,48 @@ img {
     background: transparent;
     cursor: pointer;
     transition: opacity 0.3s ease-in-out;
-  }
-  
-  .swiper-button-prev:hover, .swiper-button-next:hover,
-  .swiper-button-prev:focus, .swiper-button-next:focus {
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover,
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
     opacity: 0.8;
-  }
-  
-  .swiper-button-prev.disabled, .swiper-button-next.disabled {
+}
+
+.swiper-button-prev.disabled,
+.swiper-button-next.disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
-  /* Стили для секции Projects (мобильная версия) */
+}
 
-  
-  /* Ограничение размеров слайдера */
-  .swiper-container {
+/* Стили для секции Projects (мобильная версия) */
+
+
+/* Ограничение размеров слайдера */
+.swiper-container {
     width: 100%;
     max-width: 375px;
     margin: 0 auto;
     overflow: hidden;
-  }
-  
-  /* Ограничение размеров карточек */
-  .swiper-slide {
+}
+
+/* Ограничение размеров карточек */
+.swiper-slide {
     width: 100%;
     max-width: 343px;
-  }
-  
-  
-  /* Стили для карточки */
-  .project-card {
+}
+
+
+/* Стили для карточки */
+.project-card {
     display: flex;
     flex-direction: column;
     background-color: #fafafa;
     border-radius: 24px;
-  }
-  
-  /* Стили для нижней части карточки */
+}
+
+/* Стили для нижней части карточки */
 .project-image-wrapper {
     background-color: #242527;
     border-radius: 0 0 24px 24px;
@@ -213,15 +224,17 @@ img {
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-  }
+}
 
 /* Контейнер для кнопок под каруселью */
 .swiper-navigation-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px; /* Отступ между стрелками */
-    margin-top: 32px; /* Отступ под каруселью */
+    gap: 12px;
+    /* Отступ между стрелками */
+    margin-top: 32px;
+    /* Отступ под каруселью */
 }
 
 /* Общие стили для стрелок */
@@ -230,8 +243,10 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 24px; /* Отступ между стрелками */
-    margin-top: 32px; /* Отступ под каруселью */
+    gap: 24px;
+    /* Отступ между стрелками */
+    margin-top: 32px;
+    /* Отступ под каруселью */
 }
 
 /* Общие стили для кнопок */
@@ -246,7 +261,7 @@ img {
     height: 52px;
     border-radius: 50%;
     cursor: pointer;
-   
+
 }
 
 /* Стили для отключенных кнопок */
@@ -271,7 +286,11 @@ img {
 .swiper-button-prev:hover:not(.disabled),
 .swiper-button-next:hover:not(.disabled) {
     opacity: 1;
-   
+
+}
+
+.icon {
+    stroke: #fafafa;
 }
 
 /* Убираем стандартные встроенные кнопки Swiper */
@@ -280,14 +299,16 @@ img {
     content: none !important;
     display: none !important;
 }
+
 .swiper-button-prev,
 .swiper-button-next {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     position: relative !important;
-    
+
 }
+
 @media only screen and (min-width: 768px) {
     .icon {
         width: 32px;
