@@ -1,7 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Проверяем, есть ли контейнер карусели
+    const swiperContainer = document.querySelector(".swiper-container");
+    const navigationContainer = document.querySelector(".swiper-navigation");
+    const prevButton = document.querySelector(".swiper-button-prev");
+    const nextButton = document.querySelector(".swiper-button-next");
+
+    if (!swiperContainer || !navigationContainer || !prevButton || !nextButton) {
+        console.error("Ошибка: Один из элементов Swiper не найден.");
+        return;
+    }
+
+    // Инициализируем Swiper
     const swiper = new Swiper(".swiper-container", {
         slidesPerView: 1,
         spaceBetween: 10,
+        loop: false,
         keyboard: {
             enabled: true,
             onlyInViewport: true,
@@ -16,35 +29,42 @@ document.addEventListener("DOMContentLoaded", function () {
                 spaceBetween: 30,
             },
         },
-        navigation: false, // Отключаем встроенные кнопки Swiper
-
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
         on: {
+            init: function () {
+                updateNavigationButtons(this);
+            },
             slideChange: function () {
-                document.querySelector(".swiper-button-prev").disabled = this.isBeginning;
-                document.querySelector(".swiper-button-next").disabled = this.isEnd;
-            }
-        }
+                updateNavigationButtons(this);
+            },
+        },
     });
 
-    // Удаляем встроенные кнопки Swiper из DOM
-    const defaultPrev = document.querySelector(".swiper-button-prev");
-    const defaultNext = document.querySelector(".swiper-button-next");
-    if (defaultPrev) defaultPrev.remove();
-    if (defaultNext) defaultNext.remove();
+    function updateNavigationButtons(swiper) {
+        prevButton.disabled = swiper.isBeginning;
+        nextButton.disabled = swiper.isEnd;
+
+        if (swiper.isBeginning) {
+            prevButton.classList.add("disabled");
+        } else {
+            prevButton.classList.remove("disabled");
+        }
+
+        if (swiper.isEnd) {
+            nextButton.classList.add("disabled");
+        } else {
+            nextButton.classList.remove("disabled");
+        }
+    }
 
     // Перемещаем кастомные кнопки под карусель
-    const swiperContainer = document.querySelector(".swiper-container");
-    const navigationContainer = document.querySelector(".swiper-navigation");
-
-    if (swiperContainer && navigationContainer) {
-        swiperContainer.insertAdjacentElement("afterend", navigationContainer);
-    }
+    swiperContainer.insertAdjacentElement("afterend", navigationContainer);
 
     // Принудительно загружаем спрайт и проверяем SVG
     setTimeout(() => {
-        const prevButton = document.querySelector(".swiper-button-prev");
-        const nextButton = document.querySelector(".swiper-button-next");
-
         if (prevButton && nextButton) {
             prevButton.style.display = "flex";
             nextButton.style.display = "flex";
