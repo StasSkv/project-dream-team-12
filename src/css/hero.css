@@ -14,7 +14,6 @@
 }
 
 .hero-background {
-  max-width: 375px;
   margin: 0 auto;
   background-color: grey;
   background-image: url(/img/hero/background-image-mobile.webp),
@@ -33,7 +32,6 @@
 
 @media screen and (min-width: 768px) {
   .hero-background {
-    max-width: 768px;
     background-image: url(/img/hero/background-image-table.webp),
       url(/img/hero/background-color.webp);
   }
@@ -48,7 +46,6 @@
 
 @media screen and (min-width: 1440px) {
   .hero-background {
-    max-width: 1440px;
     background-image: url(/img/hero/background-image-desctop.webp),
       url(/img/hero/background-color.webp);
   }
