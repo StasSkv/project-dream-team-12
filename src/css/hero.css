@@ -14,10 +14,9 @@
 }
 
 .hero-background {
+  max-width: 375px;
   margin: 0 auto;
-  background-color: grey;
-  background-image: url(/img/hero/background-image-mobile.webp),
-    url(/img/hero/background-color.webp);
+  background-image: url(/img/hero/background-image-mobile.webp);
   background-repeat: repeat-y;
   background-position: left, center;
   background-size: contain, cover;
@@ -25,35 +24,32 @@
 
 @media (min-resolution: 192dpi) {
   .hero-background {
-    background-image: url(/img/hero/background-image-mobile-2x.webp),
-      url(/img/hero/background-color-2x.webp);
+    background-image: url(/img/hero/background-image-mobile-2x.webp);
   }
 }
 
 @media screen and (min-width: 768px) {
   .hero-background {
-    background-image: url(/img/hero/background-image-table.webp),
-      url(/img/hero/background-color.webp);
+    max-width: 768px;
+    background-image: url(/img/hero/background-image-table.webp);
   }
 
   @media (min-resolution: 192dpi) {
     .hero-background {
-      background-image: url(/img/hero/background-image-table-2x.webp),
-        url(/img/hero/background-color-2x.webp);
+      background-image: url(/img/hero/background-image-table-2x.webp);
     }
   }
 }
 
 @media screen and (min-width: 1440px) {
   .hero-background {
-    background-image: url(/img/hero/background-image-desctop.webp),
-      url(/img/hero/background-color.webp);
+    max-width: 1440px;
+    background-image: url(/img/hero/background-image-desctop.webp);
   }
 
   @media (min-resolution: 192dpi) {
     .hero-background {
-      background-image: url(/img/hero/background-image-desctop-2x.webp),
-        url(/img/hero/background-color-2x.webp);
+      background-image: url(/img/hero/background-image-desctop-2x.webp);
     }
   }
 }
