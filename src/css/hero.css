@@ -1,0 +1,152 @@
+.hero-background {
+  background-image: url(/img/hero/background-image-mobile.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .hero-background {
+    background-image: url(/img/hero/background-image-mobile-2x.png);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero-background {
+    background-image: url(/img/hero/background-image-table.png);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero-background {
+      background-image: url(/img/hero/background-image-table-2x.png);
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-background {
+    background-image: url(/img/hero/background-image-desctop.png);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero-background {
+      background-image: url(/img/hero/background-image-desctop-2x.png);
+    }
+  }
+}
+
+.hero-title {
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--main-text);
+  padding-top: 281px;
+  margin-bottom: 212px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-title {
+    font-size: 90px;
+    letter-spacing: -0.03em;
+    width: 632px;
+    margin-bottom: 187px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-title {
+    width: 1200px;
+    letter-spacing: -0.03em;
+    margin-left: 146px;
+    margin-bottom: 243px;
+  }
+}
+
+.hero-list-social-networks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-list-social-networks {
+    gap: 8px;
+    justify-content: right;
+  }
+}
+
+.hero-social-networks {
+  border: 1px solid rgba(250, 250, 250, 0.2);
+  border-radius: 60px;
+  padding: 10px 12px;
+  width: 37px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-medium);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--main-text);
+  text-transform: uppercase;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.hero-social-networks:hover,
+.hero-social-networks:focus {
+  border-color: var(--main-text);
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-social-networks {
+    padding: 18px 20px;
+    width: 55px;
+    height: 55px;
+    font-size: 16px;
+  }
+}
+
+.hero-social-networks-mail {
+  border: 1px solid rgba(250, 250, 250, 0.2);
+  border-radius: 60px;
+  padding: 10px 12px;
+  width: 178px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--main-text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-social-networks-mail {
+    padding: 18px 24px;
+    width: 223px;
+    height: 55px;
+    font-size: 16px;
+  }
+}
+
+.hero-social-networks-mail:hover,
+.hero-social-networks-mail:focus {
+  border-color: var(--main-text);
+  outline: none;
+}
