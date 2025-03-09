@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    // Удаляем стандартные стили Swiper для кнопок
+    prevButton.classList.add("custom-swiper-button");
+    nextButton.classList.add("custom-swiper-button");
+
     // Инициализируем Swiper
     const swiper = new Swiper(".swiper-container", {
         slidesPerView: 1,
@@ -63,60 +67,34 @@ document.addEventListener("DOMContentLoaded", function () {
             swiperContainer.insertAdjacentElement("afterend", navigationContainer);
         }
 
-        navigationContainer.appendChild(prevButton);
-        navigationContainer.appendChild(nextButton);
+        // Проверяем, если кнопки уже внутри контейнера, не добавляем их повторно
+        if (!navigationContainer.contains(prevButton)) {
+            navigationContainer.appendChild(prevButton);
+        }
+        if (!navigationContainer.contains(nextButton)) {
+            navigationContainer.appendChild(nextButton);
+        }
+
+        function updateButtonSpacing() {
+            if (window.innerWidth > 767) {
+                prevButton.style.marginRight = "10px";
+                nextButton.style.marginLeft = "10px";
+            } else {
+                prevButton.style.marginRight = "6px";
+                nextButton.style.marginLeft = "6px";
+            }
+        }
+
+        // Устанавливаем начальные значения
+        updateButtonSpacing();
+        
+        // Добавляем обработчик изменения размера окна
+        window.addEventListener("resize", updateButtonSpacing);
     }
 
-    // Добавляем стили прямо в <head>
-    const style = document.createElement("style");
-    style.innerHTML = `
-        .swiper-navigation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin-top: 32px;
-        }
-
-        .swiper-button-prev,
-        .swiper-button-next {
-            position: static !important;
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            border: 2px solid rgba(250, 250, 250, 0.5);
-            background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-
-        .swiper-button-prev.disabled,
-        .swiper-button-next.disabled {
-            border: 2px solid rgba(250, 250, 250, 0.2);
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .swiper-button-prev svg,
-        .swiper-button-next svg {
-            width: 32px;
-            height: 32px;
-            fill: none;
-            stroke: rgba(250, 250, 250, 0.8);
-            stroke-width: 2;
-        }
-
-        .swiper-button-prev:hover:not(.disabled),
-        .swiper-button-next:hover:not(.disabled) {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-    `;
-    document.head.appendChild(style);
+    // Применяем transform: scaleX(1.2) к кнопкам
+    prevButton.style.transform = "scaleX(1.2)";
+    nextButton.style.transform = "scaleX(1.2)";
 });
 
 
-  
