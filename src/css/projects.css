@@ -275,8 +275,8 @@ img {
 }
 
 /* Убираем стандартные встроенные кнопки Swiper */
-.swiper-button-prev::after,
-.swiper-button-next::after {
+swiper-button-prev::after,
+swiper-button-next::after {
     content: none !important;
     display: none !important;
 }
