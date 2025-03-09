@@ -263,3 +263,9 @@ img {
     opacity: 1;
     transform: scale(1.1);
 }
+/* Полностью скрываем стандартные стрелки */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none !important; /* Убираем стандартные иконки */
+    content: "" !important;
+}
