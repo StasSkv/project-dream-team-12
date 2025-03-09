@@ -230,7 +230,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px; /* Отступ между стрелками */
+    gap: 24px; /* Отступ между стрелками */
     margin-top: 32px; /* Отступ под каруселью */
 }
 
@@ -271,7 +271,7 @@ img {
 .swiper-button-prev:hover:not(.disabled),
 .swiper-button-next:hover:not(.disabled) {
     opacity: 1;
-    transform: scale(1.1);
+   
 }
 
 /* Убираем стандартные встроенные кнопки Swiper */
