@@ -225,57 +225,58 @@ img {
 }
 
 /* Общие стили для стрелок */
+/* Контейнер для кнопок под каруселью */
+.swiper-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Отступ между стрелками */
+    margin-top: 32px; /* Отступ под каруселью */
+}
+
+/* Общие стили для кнопок */
 .swiper-button-prev,
 .swiper-button-next {
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    border: 2px solid rgba(250, 250, 250, 0.5); /* Белая обводка */
-    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: transparent;
+    border: 1px solid rgba(250, 250, 250, 0.5);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
     cursor: pointer;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Стиль для неактивных кнопок */
-.swiper-button-prev:disabled,
-.swiper-button-next:disabled {
-    border: 2px solid rgba(250, 250, 250, 0.2); /* Менее заметная обводка */
+/* Стили для отключенных кнопок */
+.swiper-button-prev.disabled,
+.swiper-button-next.disabled {
+    border: 1px solid rgba(250, 250, 250, 0.2);
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-/* Иконка внутри кнопки */
-.swiper-button-prev svg,
-.swiper-button-next svg {
-    width: 32px;
-    height: 32px;
-    fill: none;
-    stroke: rgba(250, 250, 250, 0.8);
+/* Иконка внутри кнопок */
+.swiper-button-prev .icon,
+.swiper-button-next .icon {
+    width: 24px;
+    height: 24px;
     stroke-width: 2;
+    stroke: #fafafa;
+    fill: transparent;
 }
 
-    .icon {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      stroke-width: 2;
-      stroke: #fafafa;
-      fill: #fafafa;
-    }
-
-
 /* Эффект при наведении */
-.swiper-button-prev:hover:not(:disabled),
-.swiper-button-next:hover:not(:disabled) {
+.swiper-button-prev:hover:not(.disabled),
+.swiper-button-next:hover:not(.disabled) {
     opacity: 1;
     transform: scale(1.1);
 }
-/* Полностью скрываем стандартные стрелки */
+
+/* Убираем стандартные встроенные кнопки Swiper */
 .swiper-button-prev::after,
 .swiper-button-next::after {
-    display: none !important; /* Убираем стандартные иконки */
-    content: "" !important;
+    content: none !important;
+    display: none !important;
 }
