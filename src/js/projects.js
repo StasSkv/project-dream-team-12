@@ -1,3 +1,8 @@
+import { Swiper } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 document.addEventListener("DOMContentLoaded", function () {
     const swiperContainer = document.querySelector(".swiper-container");
     const prevButton = document.querySelector(".swiper-button-prev");
@@ -112,5 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     document.head.appendChild(style);
 });
+
 
   
