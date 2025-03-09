@@ -68,7 +68,6 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--main-text);
-  margin-left: 16px;
   padding-top: 281px;
   margin-bottom: 212px;
 }
@@ -78,7 +77,6 @@
     font-size: 90px;
     letter-spacing: -0.03em;
     width: 632px;
-    margin-left: 32px;
     margin-bottom: 187px;
   }
 }
