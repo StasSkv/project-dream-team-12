@@ -72,7 +72,6 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--main-text);
-  margin-left: 16px;
   padding-top: 281px;
   margin-bottom: 212px;
 }
@@ -82,8 +81,7 @@
     font-size: 90px;
     letter-spacing: -0.03em;
     width: 632px;
-    margin-left: 32px;
-    margin-bottom: 187px;
+    margin-bottom: 155px;
     padding-top: 300px;
   }
 }
@@ -92,7 +90,7 @@
   .hero-title {
     width: 1200px;
     letter-spacing: -0.03em;
-    margin-left: 178px;
+    margin-left: 146px;
     margin-bottom: 243px;
   }
 }
@@ -109,7 +107,6 @@
   .hero-list-social-networks {
     gap: 8px;
     justify-content: right;
-    margin-right: 32px;
   }
 }
 
