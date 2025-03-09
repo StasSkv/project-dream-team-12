@@ -216,7 +216,7 @@ img {
   }
 
 /* Контейнер для кнопок под каруселью */
-.swiper-navigation {
+.swiper-navigation-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
