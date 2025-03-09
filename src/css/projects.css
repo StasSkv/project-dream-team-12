@@ -246,7 +246,7 @@ img {
     height: 52px;
     border-radius: 50%;
     cursor: pointer;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+   
 }
 
 /* Стили для отключенных кнопок */
