@@ -202,8 +202,12 @@
     
 }
 @media screen and (min-width: 768px) {
-
+    .content-link {
+    
+    }
 }
 @media screen and (min-width: 1440px) {
+    .content-link {
     
+    }
 }
