@@ -286,7 +286,7 @@ img {
 
 }
 
-.icon {
+.icons {
     stroke: #fafafa;
 }
 
@@ -307,7 +307,7 @@ img {
 }
 
 @media only screen and (min-width: 768px) {
-    .icon {
+    .icons {
         width: 32px;
         height: 32px;
     }
