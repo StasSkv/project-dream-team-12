@@ -222,13 +222,21 @@ img {
         width: 100%;
         max-width: 1376px;
         height: 625px;
+        align-items: stretch;
+        justify-content: space-between;
     }
 
     .project-content {
-        width: 50%;
+        width: 50%; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .project-image-wrapper {
-        width: 50%;
+        width: 50%; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
