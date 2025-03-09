@@ -223,7 +223,7 @@ img {
         justify-content: space-between;
         width: 100%;
         max-width: 1376px;
-        height: 813px;
+        height: 625px;
         margin-left: 0 !important; /* ✅ Убираем возможные отступы */
     }
 
