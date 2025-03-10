@@ -115,9 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // ✅ Добавляем управление отступами кнопок (32px до 768px, 64px после 768px)
         function updateButtonSpacing() {
             if (window.innerWidth >= 768) {
-                navigationContainer.style.marginTop = "64px"; // Отступ 64px при ширине 768+
+                navigationContainer.style.marginTop = "px"; // Отступ 64px при ширине 768+
             } else {
-                navigationContainer.style.marginTop = "32px"; // Отступ 32px на мобильных
+                navigationContainer.style.marginTop = "64px"; // Отступ 32px на мобильных
             }
         }
 
