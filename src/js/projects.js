@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // ✅ Инициализируем Swiper (только 1 карточка за раз)
+    // ✅ Инициализируем Swiper
     const swiper = new Swiper(".swiper-container", {
-        slidesPerView: 1, // ✅ Только 1 карточка на экране
-        spaceBetween: 0, // ✅ Без пробелов между карточками
-        loop: false, // ✅ Без зацикливания
+        slidesPerView: 1, // ✅ Только 1 карточка за раз
+        spaceBetween: 0, // ✅ Без отступов на мобиле
+        loop: false, // ✅ Отключаем зацикливание
         keyboard: {
             enabled: true,
             onlyInViewport: true,
@@ -30,15 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
         breakpoints: {
             768: {
                 slidesPerView: 1,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 1,
-                spaceBetween: 30,
+                spaceBetween: 32, // ✅ Отступы на планшете
             },
             1440: {
-                slidesPerView: 1, // ✅ Теперь следующая карточка НЕ видна
-                spaceBetween: 0,
+                slidesPerView: 1,
+                spaceBetween: 32, // ✅ Отступы на десктопе
             }
         },
         on: {
@@ -46,9 +42,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 moveNavigationButtons();
                 updateNavigationButtons(swiper);
                 updateSlideLayout();
+                updateSlideVisibility(swiper);
             },
             slideChange: function (swiper) {
                 updateNavigationButtons(swiper);
+                updateSlideVisibility(swiper);
             },
             resize: function () {
                 updateSlideLayout();
@@ -80,15 +78,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Обновление разметки слайдов (чтобы карточки центрировались)
+    // ✅ Центрируем карточку + добавляем отступы
     function updateSlideLayout() {
+        swiperContainer.style.overflow = "hidden"; // ✅ Прячем след. карточку
+
+        if (window.innerWidth >= 768) {
+            swiperWrapper.style.padding = "0 32px"; // ✅ Отступы на планшете и десктопе
+        } else {
+            swiperWrapper.style.padding = "0"; // ✅ Без отступов на мобиле
+        }
+
         const slides = document.querySelectorAll(".swiper-slide");
         if (window.innerWidth >= 1440) {
             slides.forEach(slide => {
                 slide.style.display = "flex";
                 slide.style.flexDirection = "row";
-                slide.style.width = "1376px";
-                slide.style.height = "813px"; // ✅ Высота карточек
+                slide.style.width = "1376px"; // ✅ Десктопная ширина
+                slide.style.height = "813px"; // ✅ Десктопная высота
                 slide.style.alignItems = "stretch";
             });
         } else {
@@ -102,29 +108,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Центрирование карточек и скрытие след. слайдов
+    // ✅ Скрываем все карточки, кроме активной
     function updateSlideVisibility(swiper) {
         const slides = document.querySelectorAll(".swiper-slide");
         slides.forEach((slide, index) => {
             if (index === swiper.activeIndex) {
-                slide.style.display = "flex"; // ✅ Показываем только активный слайд
+                slide.style.display = "flex"; // ✅ Показываем активный слайд
             } else {
-                slide.style.display = "none"; // ✅ Скрываем остальные
+                slide.style.display = "none"; // ✅ Остальные скрываем
             }
         });
     }
 
-    // ✅ Вызов скрытия карточек при запуске и смене слайда
-    swiper.on('init', function () {
-        updateSlideVisibility(swiper);
-    });
-    swiper.on('slideChange', function () {
-        updateSlideVisibility(swiper);
-    });
-
-    // ✅ Вызов разметки при изменении размера экрана
+    // ✅ Вызываем обновление разметки при изменении размера экрана
     window.addEventListener("resize", updateSlideLayout);
+
+    // ✅ Проверяем, что Swiper запущен
+    console.log("✅ Swiper инициализирован:", swiper);
 });
+
 
 
 
