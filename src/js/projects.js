@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 slide.style.alignItems = "stretch";
                 slide.style.justifyContent = "center";
          if (window.innerWidth < 768) {
-             slide.style.maxHeight = "100%";
+             slide.style.maxWidth = "100%";
               slide.style.height = "auto";
         } 
         
