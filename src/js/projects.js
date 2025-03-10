@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateSlideLayout() {
-        swiperContainer.style.overflow = "visible"; 
+        swiperContainer.style.overflow = "hidden"; 
 
         const slides = document.querySelectorAll(".swiper-slide");
         if (window.innerWidth >= 1440) {
