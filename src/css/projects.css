@@ -217,8 +217,7 @@ img {
         height: 55px;
     }
 
-    .swiper-button-prev,
-    .swiper-button-next {
+    .swiper-navigation-wrapper {
         gap: 20px;
     }
 
