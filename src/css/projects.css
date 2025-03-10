@@ -12,10 +12,11 @@ img {
 
 /* Ограничение размеров слайдера */
 .swiper-container {
-    width: 375px;
+    width: 100%;
     height: auto;
     margin: 0 auto;
     overflow: hidden;
+    padding: 0 16px;
 }
 
 /* Ограничение размеров карточек */
@@ -213,7 +214,10 @@ img {
         width: 704px;
         height: auto;
     }
-
+    .projects-title {
+        margin-left: 32px;
+        margin-bottom: 32px;
+    }
     .project-button {
         padding: 18px 50px;
         width: 177px;
