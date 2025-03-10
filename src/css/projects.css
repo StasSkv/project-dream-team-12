@@ -145,12 +145,7 @@ img {
     gap: 28px;
 }
 
-.swiper-navigation-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-}
+
 
 .swiper-button-prev,
 .swiper-button-next {
