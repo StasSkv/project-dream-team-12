@@ -233,6 +233,13 @@ img {
         font-size: 44px;
         line-height: 100%;
     }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        padding: 16px;
+        width: 64px;
+        height: 64px;
+    }
 }
 
 /* ✅ Десктоп (1440px+) */
