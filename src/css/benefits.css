@@ -34,6 +34,11 @@
     opacity: 0.4;
     margin-bottom: 32px;
 }
+@media screen and (min-width: 1440px) {
+    .title-benefits {
+        margin-bottom: 0;
+    }
+}
     @media screen and (min-width: 1440px)  {
         .content {
             max-width: 680px;
@@ -124,5 +129,8 @@
     color: #fafafa;
     display: grid;
     place-items: center;
-    
+}
+.content-link:hover,
+.content-link:focus {
+    border: 1px solid #fafafa;
 }
