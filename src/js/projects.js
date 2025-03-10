@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerView: 1, // ✅ Только 1 карточка за раз
         spaceBetween: 0, // ✅ Без отступов на мобиле
         loop: false, // ✅ Отключаем зацикливание
+        centeredSlides: true, // ✅ Центрируем слайды
         keyboard: {
             enabled: true,
             onlyInViewport: true,
@@ -74,7 +75,19 @@ document.addEventListener("DOMContentLoaded", function () {
         navigationContainer.style.display = "flex";
         navigationContainer.style.justifyContent = "center";
         navigationContainer.style.alignItems = "center";
-        navigationContainer.style.marginTop = "32px"; // ✅ Добавляем отступ под каруселью
+        navigationContainer.style.position = "relative";
+
+        // ✅ Добавляем отступы в зависимости от экрана
+        function updateButtonSpacing() {
+            if (window.innerWidth >= 768) {
+                navigationContainer.style.marginTop = "64px"; // ✅ Отступ на планшете и десктопе
+            } else {
+                navigationContainer.style.marginTop = "32px"; // ✅ Отступ на мобиле
+            }
+        }
+
+        updateButtonSpacing(); // ✅ Устанавливаем изначальное значение
+        window.addEventListener("resize", updateButtonSpacing); // ✅ Обновляем при изменении размера окна
 
         if (!navigationContainer.contains(prevButton)) {
             navigationContainer.appendChild(prevButton);
@@ -102,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 slide.style.width = "1376px"; // ✅ Десктопная ширина
                 slide.style.height = "813px"; // ✅ Десктопная высота
                 slide.style.alignItems = "stretch";
+                slide.style.justifyContent = "center"; // ✅ Центрируем карточку
             });
         } else {
             slides.forEach(slide => {
@@ -132,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ Проверяем, что Swiper запущен
     console.log("✅ Swiper инициализирован:", swiper);
 });
+
 
 
 
