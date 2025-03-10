@@ -14,18 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Удаляем стандартные стили Swiper для кнопок
-    prevButton.classList.add("custom-swiper-button");
-    nextButton.classList.add("custom-swiper-button");
-
-    // ✅ Инициализируем Swiper с фиксированным `slidesPerView: 1`
+    // ✅ Инициализируем Swiper (только 1 карточка за раз)
     const swiper = new Swiper(".swiper-container", {
-        slidesPerView: 1, // ✅ Показываем ТОЛЬКО ОДИН слайд, чтобы не было видимого второго
-        spaceBetween: 0, // ✅ Убираем лишние отступы между слайдами
-        loop: false,
+        slidesPerView: 1, // ✅ Только 1 карточка на экране
+        spaceBetween: 0, // ✅ Без пробелов между карточками
+        loop: false, // ✅ Без зацикливания
         keyboard: {
             enabled: true,
             onlyInViewport: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
         breakpoints: {
             768: {
@@ -37,22 +37,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 spaceBetween: 30,
             },
             1440: {
-                slidesPerView: 1, // ✅ Исправлено с `auto` на `1`
-                spaceBetween: 40,
+                slidesPerView: 1, // ✅ Теперь следующая карточка НЕ видна
+                spaceBetween: 0,
             }
         },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
         on: {
-            init: function () {
+            init: function (swiper) {
                 moveNavigationButtons();
-                updateNavigationButtons(this);
+                updateNavigationButtons(swiper);
                 updateSlideLayout();
             },
-            slideChange: function () {
-                updateNavigationButtons(this);
+            slideChange: function (swiper) {
+                updateNavigationButtons(swiper);
             },
             resize: function () {
                 updateSlideLayout();
@@ -84,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Исправление разметки, чтобы следующий слайд НЕ был виден
+    // ✅ Обновление разметки слайдов (чтобы карточки центрировались)
     function updateSlideLayout() {
         const slides = document.querySelectorAll(".swiper-slide");
         if (window.innerWidth >= 1440) {
@@ -92,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 slide.style.display = "flex";
                 slide.style.flexDirection = "row";
                 slide.style.width = "1376px";
-                slide.style.height = "813px"; // ✅ Переносим высоту сюда
+                slide.style.height = "813px"; // ✅ Высота карточек
                 slide.style.alignItems = "stretch";
             });
         } else {
@@ -106,9 +102,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Вызываем обновление разметки при изменении размера экрана
+    // ✅ Центрирование карточек и скрытие след. слайдов
+    function updateSlideVisibility(swiper) {
+        const slides = document.querySelectorAll(".swiper-slide");
+        slides.forEach((slide, index) => {
+            if (index === swiper.activeIndex) {
+                slide.style.display = "flex"; // ✅ Показываем только активный слайд
+            } else {
+                slide.style.display = "none"; // ✅ Скрываем остальные
+            }
+        });
+    }
+
+    // ✅ Вызов скрытия карточек при запуске и смене слайда
+    swiper.on('init', function () {
+        updateSlideVisibility(swiper);
+    });
+    swiper.on('slideChange', function () {
+        updateSlideVisibility(swiper);
+    });
+
+    // ✅ Вызов разметки при изменении размера экрана
     window.addEventListener("resize", updateSlideLayout);
 });
+
+
 
 
 
