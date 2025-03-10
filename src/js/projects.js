@@ -37,7 +37,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fixButtonPosition(prevButton);
     fixButtonPosition(nextButton);
-
+    function fixButtonPosition(button) {
+        button.style.display = "flex";
+        button.style.alignItems = "center";
+        button.style.justifyContent = "center";
+        button.style.position = "relative";
+        button.style.borderRadius = "60px";
+    
+        if (window.innerWidth >= 768) {
+            button.style.border = "1px solid rgba(250, 250, 250, 0.2)";
+            button.style.padding = "18px";
+            button.style.width = "68px";
+            button.style.height = "68px";
+        } else {
+            button.style.width = "52px";
+            button.style.height = "52px";
+        }
+    
+        const svg = button.querySelector("svg");
+        if (svg) {
+            svg.style.position = "absolute";
+            svg.style.top = "50%";
+            svg.style.left = "50%";
+            svg.style.transform = "translate(-50%, -50%)";
+            svg.style.width = "32px";
+            svg.style.height = "32px";
+        }
+    }
+    
+    // Вызываем функцию при загрузке и изменении размера окна
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".button-class").forEach(fixButtonPosition);
+    });
+    
+    window.addEventListener("resize", () => {
+        document.querySelectorAll(".button-class").forEach(fixButtonPosition);
+    });
+    
     // ✅ Инициализируем Swiper
     const swiper = new Swiper(".swiper-container", {
         slidesPerView: 1,
