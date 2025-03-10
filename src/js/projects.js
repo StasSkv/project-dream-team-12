@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         on: {
             init: function (swiper) {
-                moveNavigationButtons();
+                moveNavigationButtons(); // ✅ Перемещаем кнопки под карусель
                 updateNavigationButtons(swiper);
                 updateSlideLayout();
                 updateSlideVisibility(swiper);
@@ -69,6 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
             navigationContainer.classList.add("swiper-navigation");
             swiperContainer.insertAdjacentElement("afterend", navigationContainer);
         }
+
+        // ✅ Центрируем кнопки под каруселью
+        navigationContainer.style.display = "flex";
+        navigationContainer.style.justifyContent = "center";
+        navigationContainer.style.alignItems = "center";
+        navigationContainer.style.marginTop = "32px"; // ✅ Добавляем отступ под каруселью
 
         if (!navigationContainer.contains(prevButton)) {
             navigationContainer.appendChild(prevButton);
@@ -126,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ Проверяем, что Swiper запущен
     console.log("✅ Swiper инициализирован:", swiper);
 });
+
 
 
 
