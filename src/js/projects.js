@@ -140,8 +140,8 @@ document.addEventListener("DOMContentLoaded", function () {
             slides.forEach(slide => {
                 slide.style.display = "flex";
                 slide.style.flexDirection = "row";
-                slide.style.width = "1376px";
-                slide.style.height = "813px";
+                slide.style.maxWidth = "100%";
+                slide.style.height = "auto";
                 slide.style.alignItems = "stretch";
                 slide.style.justifyContent = "center";
             });
