@@ -144,8 +144,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    margin-top: 64px;
+    gap: 12px;
+
 }
 
 .swiper-navigation-wrapper {
