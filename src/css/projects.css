@@ -8,13 +8,13 @@ img {
 .projects-section {
 
     height: 868px;
-    margin: 0 auto 94px;
+    margin-bottom: 96px;
 }
 
 /* Ограничение размеров слайдера */
 .swiper-container {
-    width: 100%;
-    min-width: 375px;
+    width: 375px;
+    height: auto;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -142,9 +142,8 @@ img {
 /* Стрелки под слайдером */
 .swiper-navigation {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+    gap: 20px;
+
 
 }
 
