@@ -144,8 +144,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 slide.style.height = "auto";
                 slide.style.alignItems = "stretch";
                 slide.style.justifyContent = "center";
+         if (window.innerWidth < 768) {
+                    slide.style.maxHeight = "85vh"; // Ограничиваем высоту на мобильных (85% экрана)
+        } 
+        else {
+                    slide.style.maxHeight = "none"; // На десктопе убираем ограничение
+                }
             });
-        } else {
+        } 
+        else {
             slides.forEach(slide => {
                 slide.style.display = "";
                 slide.style.flexDirection = "";
