@@ -129,8 +129,8 @@
     rotate: 180deg;
 }
 
-.accordion-container .ac:hover> .ac-header .ac-trigger .ac-trigger-icon,
-.accordion-container .ac.is-active:hover > .ac-header .ac-trigger .ac-trigger-icon {
+.accordion-container .ac > .ac-header:hover .ac-trigger .ac-trigger-icon,
+.accordion-container .ac.is-active > .ac-header:hover .ac-trigger .ac-trigger-icon {
     rotate: 90deg;
 }
 
