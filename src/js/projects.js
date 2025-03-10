@@ -14,27 +14,36 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // ✅ Убираем лишние трансформации, которые сплющивали кнопки
-    prevButton.style.transform = "none";
-    nextButton.style.transform = "none";
+    // ✅ Центрируем кнопки (круг) и стрелки (svg)
+    function fixButtonPosition(button) {
+        button.style.display = "flex";
+        button.style.alignItems = "center";
+        button.style.justifyContent = "center";
+        button.style.position = "relative";
+        button.style.width = "68px";
+        button.style.height = "68px";
+        button.style.borderRadius = "50%";
 
-    // ✅ Делаем кнопки круглыми в JS (если CSS не срабатывает)
-    prevButton.style.width = "68px";
-    prevButton.style.height = "68px";
-    prevButton.style.borderRadius = "50%"; // ✅ Круглая форма
-    prevButton.style.aspectRatio = "1 / 1"; // ✅ Фиксируем пропорции
+        const svg = button.querySelector("svg");
+        if (svg) {
+            svg.style.position = "absolute";
+            svg.style.top = "50%";
+            svg.style.left = "50%";
+            svg.style.transform = "translate(-50%, -50%)";
+            svg.style.width = "32px";
+            svg.style.height = "32px";
+        }
+    }
 
-    nextButton.style.width = "68px";
-    nextButton.style.height = "68px";
-    nextButton.style.borderRadius = "50%";
-    nextButton.style.aspectRatio = "1 / 1";
+    fixButtonPosition(prevButton);
+    fixButtonPosition(nextButton);
 
     // ✅ Инициализируем Swiper
     const swiper = new Swiper(".swiper-container", {
-        slidesPerView: 1, 
-        spaceBetween: 0, 
-        loop: false, 
-        centeredSlides: true, 
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: false,
+        centeredSlides: true,
         keyboard: {
             enabled: true,
             onlyInViewport: true,
@@ -149,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("✅ Swiper инициализирован:", swiper);
 });
+
 
 
 
