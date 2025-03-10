@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
         button.style.alignItems = "center";
         button.style.justifyContent = "center";
         button.style.position = "relative";
-        button.style.width = "68px";
-        button.style.height = "68px";
-        button.style.borderRadius = "50%";
+        button.style.width = "52px";
+        button.style.height = "52px";
+        button.style.borderRadius = "60px";
 
         const svg = button.querySelector("svg");
         if (svg) {
