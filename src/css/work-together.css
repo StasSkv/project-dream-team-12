@@ -49,12 +49,23 @@
   color: #fafafa;
 }
 .footer-work-together .container {
+  max-width: 728px;
+  height: 679px;
+  margin: 0 auto;
+  position: relative;
+  background-image: url('../img/work-together/glass1x.webp');
   padding: 0 196px;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .footer-work-together .container {
+    background-image: url('../img/work-together/glass2x.webp');
+  }
 }
 .footer-contact-details {
   display: flex;
   gap: 4px;
-  justify-content: space-between;
+  justify-content: start;
+  flex-wrap: wrap;
   align-items: center;
   margin-top: 64px;
 }
@@ -124,7 +135,9 @@
   background-color: transparent;
   padding-bottom: 20px;
 }
-
+.work-together .container {
+  padding-bottom: 32px;
+}
 @media only screen and (min-width: 768px) {
   .footer-title {
     width: 542px;
@@ -157,9 +170,6 @@
     height: 150px;
     margin-top: 0;
   }
-  .footer-input {
-    /* min-width: 390px; */
-  }
 }
 @media screen and (min-width: 1440px) {
   .footer-send-btn {
@@ -167,5 +177,29 @@
     height: 150px;
     margin-top: 0;
     margin-left: 54px;
+  }
+  .avatar {
+    width: 70px;
+    height: 70px;
+  }
+  .footer-title-text {
+    font-size: 64px;
+  }
+  .footer-together {
+    font-size: 64px;
+  }
+  .footer-input {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+  .footer-send-btn {
+    width: 150px;
+    height: 150px;
+  }
+  .work-together .container {
+    padding-bottom: 183px;
+    padding-left: 200px;
   }
 }
