@@ -1,18 +1,24 @@
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+   .covers {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.covers__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     
-    .covers {
-     position: relative;
-     position: absolute;
-  right: -800px;
-  left: 0;
-  overflow: hidden;
-  font-family: "Pridi", sans-serif;
-  font-weight: 600;
-  font-size: 34px;
-  text-transform: uppercase;
-    }
+}
     
-    .visually-hidden {
+    .covers__title {
      position: absolute;
      width: 1px;
      height: 1px;
@@ -24,44 +30,60 @@
     }
     
     .covers__list {
-        height: 20vh;
         display: flex;
-        transform: rotate(16deg);
-    
+        flex-wrap: nowrap;
+        gap: 10px;
+        width: 300%;
+        will-change: transform;
+        animation: covers-left 10s linear infinite;
+        transform: rotate(15deg);
+        margin-bottom: 20px;
+        
+
     }
+
     
-    .covers__item {
-        background: linear-gradient(90deg, #1c1d20 49.68%, #9f3626 67.73%, #e6533c 100%);
-        transform: rotate(-180deg);
-        flex-shrink: 0;
-        margin-right: 10px; 
-       
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: calc(100% /10); 
-        white-space: nowrap;
-        animation-name: marqueeLine;
-        animation-duration: 5s;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-    }
+.covers__item {
+    flex-shrink: 0;
+    background: linear-gradient(90deg, #1c1d20 49.68%, #9f3626 67.73%, #e6533c 100%);
+    padding: 5px;
+    animation-duration: 5s;
+}
     .covers__item img {
-        width: 100%;  /* Щоб зображення було адаптивним */
+        width: 282px;  
         height: auto;
         object-fit: cover;
         border-radius: 0px; 
+        
     }
     
     
-    @keyframes .covers-left {
-     from {
-     transform: translateX(100%);
-     }
-     to {
-     transform: translateX(-100%);
-     }
+    @keyframes covers-left {
+        from {
+            transform: translate(0, 0) rotate(18deg);
+        }
+        to {
+            transform: translate(-20%, -180%) rotate(18deg);
+        }
     }
     
-    
+   /* ======= TABLET (768px) ======= */
+@media screen and (min-width: 768px) {
+    .covers__item img {
+        width: 544px;
+    }
+    .covers__list {
+        animation-duration: 8s; 
+    }
+}
+
+/* ======= DESKTOP (1440px) ======= */
+@media screen and (min-width: 1440px) {
+    .covers__item img {
+        width: 544px;
+    }
+    .covers__list {
+        animation-duration: 8s; /* Ще швидше для десктопа */
+    }
+} 
     
