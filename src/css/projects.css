@@ -1,0 +1,297 @@
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Секция Projects (мобильная версия) */
+.projects-section {
+  
+    margin-bottom: 96px;
+}
+
+/* Ограничение размеров слайдера */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 16px;
+}
+
+/* Ограничение размеров карточек */
+.swiper-slide {
+    width: 100%;
+    min-width: 343px;
+}
+
+/* Заголовок секции */
+.projects-title {
+    font-family: var(--font-medium);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: rgba(250, 250, 250, 0.4);
+    margin: 64px 0 32px;
+    text-align: left;
+}
+
+.project-title-in {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 117%;
+    letter-spacing: -0.03em;
+    color: var(--background);
+    margin-top: 96px;
+}
+
+/* Карточка */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    width: 343px;
+    height: 812px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #fafafa;
+}
+
+/* Контент карточки */
+.project-content {
+    background-color: #fafafa;
+    min-height: 417px;
+    width: 100%;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Обертка изображения */
+.project-image-wrapper {
+    background-color: #242527;
+    border-radius: 0 0 24px 24px;
+    width: 100%;
+    height: 395px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+/* Теги */
+.project-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.project-tags .tag {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: var(--background);
+    border: 1px solid rgba(28, 29, 32, 0.2);
+    border-radius: 60px;
+    padding: 18px;
+    white-space: nowrap;
+}
+
+/* Индивидуальные размеры тегов */
+.project-tags .tag:nth-child(1) {
+    width: 80px;
+}
+
+.project-tags .tag:nth-child(2) {
+    width: 57px;
+}
+
+.project-tags .tag:nth-child(3) {
+    width: 94px;
+}
+
+.project-tags .tag:nth-child(4) {
+    width: 63px;
+}
+
+/* Кнопка "See project" */
+.project-button {
+    display: flex;
+    margin-top: 32px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--red-accent);
+    color: var(--main-text);
+    white-space: nowrap;
+    border-radius: 60px;
+    padding: 18px 50px;
+    width: 177px;
+    height: 55px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Стрелки под слайдером */
+.swiper-navigation {
+    display: flex;
+    gap: 28px;
+}
+
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    border: 1px solid rgba(250, 250, 250, 0.5);
+    border-radius: 60px;
+    padding: 14px;
+    width: 52px;
+    height: 52px;
+    background: transparent;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.swiper-button-prev.disabled,
+.swiper-button-next.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Иконки внутри кнопок */
+.swiper-button-prev .icons,
+.swiper-button-next .icons {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+    stroke: #fafafa;
+    fill: transparent;
+}
+
+.icons {
+    stroke: #fafafa;
+}
+
+/* Убираем встроенные кнопки Swiper */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    content: none !important;
+    display: none !important;
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ✅ Планшеты (768px+) */
+@media only screen and (min-width: 768px) {
+    .icons {
+        width: 32px;
+        height: 32px;
+    }
+
+    .project-card {
+        width: 704px;
+        height: auto;
+    }
+    .projects-title {
+        margin-left: 32px;
+        margin-bottom: 32px;
+    }
+    .project-button {
+        padding: 18px 50px;
+        width: 177px;
+        height: 55px;
+    }
+
+   
+
+    .project-title-in {
+        font-weight: 500;
+        font-size: 44px;
+        line-height: 100%;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        padding: 18px;
+        width: 68px;
+        height: 68px;
+    }
+} 
+@media only screen and (min-width: 768px) {
+    .button-class { 
+        border: 1px solid rgba(250, 250, 250, 0.2);
+        border-radius: 60px;
+        padding: 18px;
+        width: 68px;
+        height: 68px;
+    }
+}
+
+/* ✅ Десктоп (1440px+) */
+@media only screen and  (min-width: 1440px) {
+    .project-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch;
+        justify-content: space-between;
+        width: 100%;
+        
+        height: 625px;
+        margin-left: 0 !important;
+    }
+
+    .project-content {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .project-image-wrapper {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 625px;
+        border-radius: 0 24px 24px 0;
+    }
+
+    .swiper-container {
+
+        max-width: 100vw !important;
+    }
+
+    .swiper-wrapper {
+        display: flex !important;
+        align-items: flex-start;
+        justify-content: flex-start !important;
+        height: 813px !important;
+    }
+
+    .swiper-slide {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch;
+        justify-content: center;
+        width: 1376px !important;
+        height: 625px !important;
+    }
+
+}
