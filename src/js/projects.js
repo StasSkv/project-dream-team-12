@@ -14,12 +14,27 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    // ✅ Убираем лишние трансформации, которые сплющивали кнопки
+    prevButton.style.transform = "none";
+    nextButton.style.transform = "none";
+
+    // ✅ Делаем кнопки круглыми в JS (если CSS не срабатывает)
+    prevButton.style.width = "68px";
+    prevButton.style.height = "68px";
+    prevButton.style.borderRadius = "50%"; // ✅ Круглая форма
+    prevButton.style.aspectRatio = "1 / 1"; // ✅ Фиксируем пропорции
+
+    nextButton.style.width = "68px";
+    nextButton.style.height = "68px";
+    nextButton.style.borderRadius = "50%";
+    nextButton.style.aspectRatio = "1 / 1";
+
     // ✅ Инициализируем Swiper
     const swiper = new Swiper(".swiper-container", {
-        slidesPerView: 1, // ✅ Только 1 карточка за раз
-        spaceBetween: 0, // ✅ Без отступов на мобиле
-        loop: false, // ✅ Отключаем зацикливание
-        centeredSlides: true, // ✅ Центрируем слайды
+        slidesPerView: 1, 
+        spaceBetween: 0, 
+        loop: false, 
+        centeredSlides: true, 
         keyboard: {
             enabled: true,
             onlyInViewport: true,
@@ -29,18 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
             prevEl: ".swiper-button-prev",
         },
         breakpoints: {
-            768: {
-                slidesPerView: 1,
-                spaceBetween: 32, // ✅ Отступы на планшете
-            },
-            1440: {
-                slidesPerView: 1,
-                spaceBetween: 32, // ✅ Отступы на десктопе
-            }
+            768: { slidesPerView: 1, spaceBetween: 32 },
+            1440: { slidesPerView: 1, spaceBetween: 32 }
         },
         on: {
             init: function (swiper) {
-                moveNavigationButtons(); // ✅ Перемещаем кнопки под карусель
+                moveNavigationButtons();
                 updateNavigationButtons(swiper);
                 updateSlideLayout();
                 updateSlideVisibility(swiper);
@@ -71,23 +80,21 @@ document.addEventListener("DOMContentLoaded", function () {
             swiperContainer.insertAdjacentElement("afterend", navigationContainer);
         }
 
-        // ✅ Центрируем кнопки под каруселью
         navigationContainer.style.display = "flex";
         navigationContainer.style.justifyContent = "center";
         navigationContainer.style.alignItems = "center";
         navigationContainer.style.position = "relative";
 
-        // ✅ Добавляем отступы в зависимости от экрана
         function updateButtonSpacing() {
             if (window.innerWidth >= 768) {
-                navigationContainer.style.marginTop = "64px"; // ✅ Отступ на планшете и десктопе
+                navigationContainer.style.marginTop = "48px";
             } else {
-                navigationContainer.style.marginTop = "32px"; // ✅ Отступ на мобиле
+                navigationContainer.style.marginTop = "32px";
             }
         }
 
-        updateButtonSpacing(); // ✅ Устанавливаем изначальное значение
-        window.addEventListener("resize", updateButtonSpacing); // ✅ Обновляем при изменении размера окна
+        updateButtonSpacing();
+        window.addEventListener("resize", updateButtonSpacing);
 
         if (!navigationContainer.contains(prevButton)) {
             navigationContainer.appendChild(prevButton);
@@ -97,14 +104,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Центрируем карточку + добавляем отступы
     function updateSlideLayout() {
-        swiperContainer.style.overflow = "hidden"; // ✅ Прячем след. карточку
+        swiperContainer.style.overflow = "hidden"; 
 
         if (window.innerWidth >= 768) {
-            swiperWrapper.style.padding = "0 32px"; // ✅ Отступы на планшете и десктопе
+            swiperWrapper.style.padding = "0 32px";
         } else {
-            swiperWrapper.style.padding = "0"; // ✅ Без отступов на мобиле
+            swiperWrapper.style.padding = "0";
         }
 
         const slides = document.querySelectorAll(".swiper-slide");
@@ -112,10 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
             slides.forEach(slide => {
                 slide.style.display = "flex";
                 slide.style.flexDirection = "row";
-                slide.style.width = "1376px"; // ✅ Десктопная ширина
-                slide.style.height = "813px"; // ✅ Десктопная высота
+                slide.style.width = "1376px";
+                slide.style.height = "813px";
                 slide.style.alignItems = "stretch";
-                slide.style.justifyContent = "center"; // ✅ Центрируем карточку
+                slide.style.justifyContent = "center";
             });
         } else {
             slides.forEach(slide => {
@@ -128,24 +134,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Скрываем все карточки, кроме активной
     function updateSlideVisibility(swiper) {
         const slides = document.querySelectorAll(".swiper-slide");
         slides.forEach((slide, index) => {
             if (index === swiper.activeIndex) {
-                slide.style.display = "flex"; // ✅ Показываем активный слайд
+                slide.style.display = "flex";
             } else {
-                slide.style.display = "none"; // ✅ Остальные скрываем
+                slide.style.display = "none";
             }
         });
     }
 
-    // ✅ Вызываем обновление разметки при изменении размера экрана
     window.addEventListener("resize", updateSlideLayout);
 
-    // ✅ Проверяем, что Swiper запущен
     console.log("✅ Swiper инициализирован:", swiper);
 });
+
 
 
 
