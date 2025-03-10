@@ -6,7 +6,7 @@ img {
 
 /* Секция Projects (мобильная версия) */
 .projects-section {
-   
+
     height: 868px;
     margin: 0 auto 94px;
 }
@@ -102,10 +102,21 @@ img {
 }
 
 /* Индивидуальные размеры тегов */
-.project-tags .tag:nth-child(1) { width: 80px; }
-.project-tags .tag:nth-child(2) { width: 57px; }
-.project-tags .tag:nth-child(3) { width: 94px; }
-.project-tags .tag:nth-child(4) { width: 63px; }
+.project-tags .tag:nth-child(1) {
+    width: 80px;
+}
+
+.project-tags .tag:nth-child(2) {
+    width: 57px;
+}
+
+.project-tags .tag:nth-child(3) {
+    width: 94px;
+}
+
+.project-tags .tag:nth-child(4) {
+    width: 63px;
+}
 
 /* Кнопка "See project" */
 .project-button {
@@ -177,13 +188,12 @@ img {
     display: none !important;
 }
 
-/* Исправление положения стрелок */
+
 .swiper-button-prev,
 .swiper-button-next {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    position: absolute !important;
     z-index: 10;
     top: 50%;
     transform: translateY(-50%);
@@ -207,10 +217,15 @@ img {
         height: 55px;
     }
 
+    .swiper-button-prev,
+    .swiper-button-next {
+        gap: 20px;
+    }
+
     .project-title-in {
-       font-weight: 500;
-       font-size: 44px;
-       line-height: 100%;
+        font-weight: 500;
+        font-size: 44px;
+        line-height: 100%;
     }
 }
 
@@ -224,42 +239,44 @@ img {
         width: 100%;
         max-width: 1376px;
         height: 625px;
-        margin-left: 0 !important; 
+        margin-left: 0 !important;
     }
 
     .project-content {
-        width: 50%; 
+        width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
     .project-image-wrapper {
-        width: 50%; 
+        width: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 625px;
-        border-radius: 0  24px 24px 0;
+        border-radius: 0 24px 24px 0;
     }
+
     .swiper-container {
-        
-        max-width: 100vw !important; 
+
+        max-width: 100vw !important;
     }
+
     .swiper-wrapper {
         display: flex !important;
-        align-items: flex-start; 
-        justify-content: flex-start !important; 
-        height: 813px !important; 
+        align-items: flex-start;
+        justify-content: flex-start !important;
+        height: 813px !important;
     }
-  
+
     .swiper-slide {
         display: flex !important;
         flex-direction: row !important;
         align-items: stretch;
-        justify-content: center; 
+        justify-content: center;
         width: 1376px !important;
         height: 625px !important;
     }
-   
+
 }
