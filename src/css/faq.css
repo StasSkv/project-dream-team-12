@@ -19,7 +19,6 @@
 }
 
 .accordion-container .ac {
-    box-sizing:border-box;
     margin: 0;
     background-color: transparent;
     border-top: 1px solid rgba(var(--main-border-rgba), 0.2);
@@ -133,21 +132,14 @@
     stroke: rgba(var(--main-border-rgba), 1);
 }
 
-
-
-
 .accordion-container .ac .ac-panel {
     overflow:hidden;
     transition-property:height,visibility;
     transition-timing-function:ease;
 }
 
-@media only screen and (min-width: 768px) {}
-
-@media only screen and (min-width: 1440px) {}
-
 .accordion-container .ac .ac-panel .ac-text {
-    font: var(--font-medium);
+    font-family: var(--font-medium);
     font-size: 16px;
     line-height: 24px;
     color: rgba(var(--main-text-rgba), 0.6);
