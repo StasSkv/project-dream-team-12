@@ -57,14 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ Инициализируем Swiper
     const swiper = new Swiper(".swiper-container", {
-        slidesPerView: 1,
-        spaceBetween: 0,
+        slidesPerView: 1, // ✅ Теперь Swiper корректно работает
+        centeredSlides: false, // ✅ Отключаем центрирование, чтобы карточки не обрезались
+        spaceBetween: 10, // ✅ Добавляем небольшой отступ, чтобы карточки не прилипали друг к другу
         loop: false,
-        centeredSlides: true,
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true,
-        },
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -115,9 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // ✅ Добавляем управление отступами кнопок (32px до 768px, 64px после 768px)
         function updateButtonSpacing() {
             if (window.innerWidth >= 768) {
-                navigationContainer.style.marginTop = "px"; // Отступ 64px при ширине 768+
+                navigationContainer.style.marginTop = "64px"; // ✅ Отступ 64px при ширине 768+
             } else {
-                navigationContainer.style.marginTop = "64px"; // Отступ 32px на мобильных
+                navigationContainer.style.marginTop = "32px"; // ✅ Отступ 32px на мобильных
             }
         }
 
@@ -136,30 +132,21 @@ document.addEventListener("DOMContentLoaded", function () {
         swiperContainer.style.overflow = "hidden"; 
 
         const slides = document.querySelectorAll(".swiper-slide");
-        if (window.innerWidth >= 1440) {
-            slides.forEach(slide => {
-                slide.style.display = "flex";
-                slide.style.flexDirection = "row";
-                slide.style.maxWidth = "100%";
-                slide.style.height = "auto";
-                slide.style.alignItems = "stretch";
-                slide.style.justifyContent = "center";
-         if (window.innerWidth < 768) {
-             slide.style.maxWidth = "100%";
-              slide.style.height = "auto";
-        } 
-        
-            });
-        } 
-        else {
-            slides.forEach(slide => {
-                slide.style.display = "";
-                slide.style.flexDirection = "";
-                slide.style.width = "";
-                slide.style.height = "";
-                slide.style.alignItems = "";
-            });
-        }
+
+        slides.forEach(slide => {
+            slide.style.display = "flex";
+            slide.style.width = "100%"; // ✅ Карточка занимает всю ширину
+            slide.style.height = "auto";
+            slide.style.justifyContent = "center";
+            slide.style.alignItems = "stretch";
+
+            if (window.innerWidth < 768) {
+                slide.style.maxWidth = "100%"; // ✅ Убираем `100vw`, чтобы Swiper нормально работал
+                slide.style.margin = "0 auto"; // ✅ Центрируем карточку
+            } else {
+                slide.style.maxWidth = "100%"; 
+            }
+        });
     }
 
     function updateSlideVisibility(swiper) {
