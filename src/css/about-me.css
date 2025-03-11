@@ -297,7 +297,6 @@
 
 @media (min-width: 768px) {
     .about-swiper-container {
-        /* max-width: 704px; */
         max-height: 200px;
         margin-top: 64px;
         padding-right: 104px;
