@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // ✅ Центрируем кнопки (круг) и стрелки (svg)
     function fixButtonPosition(button) {
         button.style.display = "flex";
         button.style.alignItems = "center";
@@ -46,48 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
     fixButtonPosition(prevButton);
     fixButtonPosition(nextButton);
 
-    // ✅ Вызываем функцию при загрузке и изменении размера окна
     document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".button-class").forEach(fixButtonPosition);
     });
 
     window.addEventListener("resize", () => {
         document.querySelectorAll(".button-class").forEach(fixButtonPosition);
-    });
-
-    // ✅ Инициализируем Swiper
-    const swiper = new Swiper(".swiper-container", {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: false,
-        centeredSlides: true,
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-            768: { slidesPerView: 1, spaceBetween: 32 },
-            1440: { slidesPerView: 1, spaceBetween: 32 }
-        },
-        on: {
-            init: function (swiper) {
-                moveNavigationButtons();
-                updateNavigationButtons(swiper);
-                updateSlideLayout();
-                updateSlideVisibility(swiper);
-            },
-            slideChange: function (swiper) {
-                updateNavigationButtons(swiper);
-                updateSlideVisibility(swiper);
-            },
-            resize: function () {
-                updateSlideLayout();
-            }
-        },
     });
 
     function updateNavigationButtons(swiper) {
@@ -98,31 +61,130 @@ document.addEventListener("DOMContentLoaded", function () {
         nextButton.classList.toggle("disabled", swiper.isEnd);
     }
 
-    // ✅ Перемещаем кнопки навигации и устанавливаем отступ от карточки (32px или 64px)
+    document.addEventListener("DOMContentLoaded", () => {
+        const extraNavWrapper = document.querySelector(".swiper-navigation-wrapper");
+        if (extraNavWrapper) {
+            extraNavWrapper.remove();
+            console.log("🚀 Удалён .swiper-navigation-wrapper перед инициализацией Swiper.");
+        }
+    });
+function updateSlideLayout() {
+    swiperContainer.style.overflow = "hidden";
+    const slides = document.querySelectorAll(".swiper-slide");
+
+    slides.forEach(slide => {
+        slide.style.display = "flex";
+        slide.style.width = "100%";
+        slide.style.height = "auto";
+        slide.style.flexDirection = "column";
+        slide.style.alignItems = "center";
+        slide.style.justifyContent = "center";
+    });
+
+    if (window.innerWidth >= 768 && window.innerWidth < 1440) {
+        const imageWrappers = document.querySelectorAll(".project-image-wrapper");
+        imageWrappers.forEach(wrapper => {
+            wrapper.style.paddingTop = "120px";
+            wrapper.style.paddingBottom = "120px";
+        });
+    }
+    function updateSlideLayout() {
+        swiperContainer.style.overflow = "hidden";
+        const slides = document.querySelectorAll(".swiper-slide");
+    
+        slides.forEach(slide => {
+            slide.style.display = "flex";
+            slide.style.width = "100%";
+            slide.style.height = "auto";
+            slide.style.flexDirection = "column";
+            slide.style.alignItems = "center";
+            slide.style.justifyContent = "center";
+        });
+    
+        const imageWrappers = document.querySelectorAll(".project-image-wrapper");
+        imageWrappers.forEach(wrapper => {
+            if (window.innerWidth >= 768 && window.innerWidth < 1440) {
+                wrapper.style.paddingTop = "120px";
+                wrapper.style.paddingBottom = "120px";
+            }
+    
+            // Добавляем боковые отступы на мобильных устройствах
+            if (window.innerWidth < 768) {
+                wrapper.style.paddingLeft = "0px";
+                wrapper.style.paddingRight = "0px";
+            }
+        });
+    }
+    
+}
+const swiper = new Swiper(".swiper-container", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: false,
+    centeredSlides: true,
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        0: { slidesPerView: "auto", spaceBetween: 20 }, // 🔥 Исправлено для мобилок
+        768: { slidesPerView: 1, spaceBetween: 32 },
+        1440: { slidesPerView: 1, spaceBetween: 32 },
+    },
+    on: {
+        init: function (swiper) {
+            moveNavigationButtons();
+            updateNavigationButtons(swiper);
+            updateSlideLayout();
+            updateSlideVisibility(swiper);
+        },
+        slideChange: function (swiper) {
+            updateNavigationButtons(swiper);
+            updateSlideVisibility(swiper);
+        },
+        resize: function () {
+            updateSlideLayout();
+        }
+    },
+});
+
+
     function moveNavigationButtons() {
         let navigationContainer = document.querySelector(".swiper-navigation");
+
         if (!navigationContainer) {
             navigationContainer = document.createElement("div");
             navigationContainer.classList.add("swiper-navigation");
-            swiperContainer.insertAdjacentElement("afterend", navigationContainer);
+            swiperWrapper.parentNode.insertBefore(navigationContainer, swiperWrapper.nextSibling);
         }
 
         navigationContainer.style.display = "flex";
         navigationContainer.style.justifyContent = "center";
         navigationContainer.style.alignItems = "center";
+        navigationContainer.style.width = "100%";
         navigationContainer.style.position = "relative";
+        navigationContainer.style.zIndex = "10";
+        navigationContainer.style.marginTop = "0px";
 
-        // ✅ Добавляем управление отступами кнопок (32px до 768px, 64px после 768px)
         function updateButtonSpacing() {
-            if (window.innerWidth >= 768) {
-                navigationContainer.style.marginTop = "px"; // Отступ 64px при ширине 768+
+            if (window.innerWidth >= 1440) {
+                navigationContainer.style.marginTop = "80px";
+            } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
+                navigationContainer.style.marginTop = "64px";
             } else {
-                navigationContainer.style.marginTop = "64px"; // Отступ 32px на мобильных
+                navigationContainer.style.marginTop = "48px";
             }
         }
 
         updateButtonSpacing();
         window.addEventListener("resize", updateButtonSpacing);
+
+        swiperContainer.style.overflow = "visible";
+        swiperWrapper.style.overflow = "visible";
 
         if (!navigationContainer.contains(prevButton)) {
             navigationContainer.appendChild(prevButton);
@@ -132,44 +194,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function updateSlideLayout() {
-        swiperContainer.style.overflow = "hidden"; 
-
-        const slides = document.querySelectorAll(".swiper-slide");
-        if (window.innerWidth >= 1440) {
-            slides.forEach(slide => {
-                slide.style.display = "flex";
-                slide.style.flexDirection = "row";
-                slide.style.maxWidth = "100%";
-                slide.style.height = "auto";
-                slide.style.alignItems = "stretch";
-                slide.style.justifyContent = "center";
-         if (window.innerWidth < 768) {
-             slide.style.maxWidth = "100%";
-              slide.style.height = "auto";
-        } 
-        
-            });
-        } 
-        else {
-            slides.forEach(slide => {
-                slide.style.display = "";
-                slide.style.flexDirection = "";
-                slide.style.width = "";
-                slide.style.height = "";
-                slide.style.alignItems = "";
-            });
-        }
-    }
-
     function updateSlideVisibility(swiper) {
         const slides = document.querySelectorAll(".swiper-slide");
-        slides.forEach((slide, index) => {
-            if (index === swiper.activeIndex) {
-                slide.style.display = "flex";
-            } else {
-                slide.style.display = "none";
-            }
+        slides.forEach(slide => {
+            slide.style.display = "flex";
         });
     }
 
@@ -177,3 +205,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("✅ Swiper инициализирован:", swiper);
 });
+

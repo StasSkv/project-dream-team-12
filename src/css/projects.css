@@ -6,7 +6,7 @@ img {
 
 /* Секция Projects (мобильная версия) */
 .projects-section {
-  
+
     margin-bottom: 96px;
 }
 
@@ -16,13 +16,7 @@ img {
     height: 100%;
     margin: 0 auto;
     overflow: hidden;
-    padding: 0 16px;
-}
-
-/* Ограничение размеров карточек */
-.swiper-slide {
-    width: 100%;
-    min-width: 343px;
+    
 }
 
 /* Заголовок секции */
@@ -145,8 +139,6 @@ img {
     gap: 28px;
 }
 
-
-
 .swiper-button-prev,
 .swiper-button-next {
     border: 1px solid rgba(250, 250, 250, 0.5);
@@ -204,22 +196,30 @@ img {
         width: 32px;
         height: 32px;
     }
-
+   
     .project-card {
         width: 704px;
         height: auto;
     }
+
     .projects-title {
         margin-left: 32px;
         margin-bottom: 32px;
     }
+
     .project-button {
         padding: 18px 50px;
         width: 177px;
         height: 55px;
     }
 
-   
+    .project-image-wrapper {
+        height: auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .project-title-in {
         font-weight: 500;
@@ -233,9 +233,10 @@ img {
         width: 68px;
         height: 68px;
     }
-} 
+}
+
 @media only screen and (min-width: 768px) {
-    .button-class { 
+    .button-class {
         border: 1px solid rgba(250, 250, 250, 0.2);
         border-radius: 60px;
         padding: 18px;
@@ -245,14 +246,14 @@ img {
 }
 
 /* ✅ Десктоп (1440px+) */
-@media only screen and  (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
     .project-card {
         display: flex !important;
         flex-direction: row !important;
         align-items: stretch;
         justify-content: space-between;
         width: 100%;
-        
+
         height: 625px;
         margin-left: 0 !important;
     }
