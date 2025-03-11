@@ -1,5 +1,5 @@
-import Accordion from "accordion-js";
+import Accordion from 'accordion-js';
 
-new Accordion(".accordion-container", {
-    showMultiple: true,
-  });
+new Accordion('.accordion-container', {
+  showMultiple: true,
+});
