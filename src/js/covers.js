@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, {
-        threshold: 0.5 
+        threshold: 0.5 // Задала, коли спостерігач вважатиме, що елемент в межах вьюпорту (50%)
+    });
 
     // Спостерігає за всіма секціями "Covers"
     lists.forEach(list => observer.observe(list));
