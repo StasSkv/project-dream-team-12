@@ -11,34 +11,26 @@
   justify-content: center;
   background: rgba(0, 0, 0, 0.8);
 }
-
-.success-message {
-  color: green;
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-.error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-.footer-label {
-  margin-bottom: 16px;
-}
 .no-scroll {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
 }
-
 .footer-input {
+  width: 100%;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: -0.02em;
-  color: rgba(250, 250, 250, 0.6);
+  color: var(--main-text);
   resize: none;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+  padding-bottom: 20px;
+}
+.footer-input select:focus {
+  background-color: transparent;
 }
 .basicLightbox__placeholder {
   width: 343px;
@@ -50,20 +42,18 @@
   text-align: center;
   position: relative;
 }
-
 .basicLightbox__placeholder h2 {
   font-size: 18px;
   font-weight: 500;
   color: #fafafa;
   margin-bottom: 8px;
 }
-
 .basicLightbox__placeholder p {
   font-size: 14px;
   color: rgba(250, 250, 250, 0.6);
+  background-color: transparent;
   line-height: 1.5;
 }
-
 .modal-close {
   position: absolute;
   top: 16px;
@@ -74,13 +64,15 @@
   color: #fafafa;
   cursor: pointer;
 }
-
 .avatar {
   border-radius: 24px;
   width: 44px;
   height: 44px;
 }
-
+.footer-label {
+  margin-bottom: 16px;
+  background: none;
+}
 .footer-form {
   margin-top: 63px;
   display: flex;
@@ -95,7 +87,6 @@
   letter-spacing: -0.03em;
   margin: 0;
 }
-
 .together-text {
   font-size: 40px;
   text-transform: uppercase;
@@ -117,7 +108,6 @@
 .work-together {
   background-position: right;
   background-repeat: no-repeat;
-
   position: relative;
   background-image: url('../img/work-together/elementsmobile1x.webp');
 }
@@ -145,7 +135,6 @@
   padding-bottom: 20px;
   display: inline-block;
 }
-
 .footer-contact-info {
   margin-top: 64px;
   display: flex;
@@ -153,7 +142,6 @@
   align-items: flex-start;
   gap: 16px;
 }
-
 .footer-email-btn,
 .footer-phone-btn {
   background: transparent;
@@ -165,10 +153,14 @@
   letter-spacing: -0.02em;
   color: #fafafa;
   padding: 10px 12px;
+  transition: border 0.3s ease-in-out;
 }
-
-.footer-email-btn:hover,
-.footer-phone-btn:hover {
+.footer-email-btn:focus,
+.footer-email-btn:hover {
+  border: 1px solid #fafafa;
+}
+.footer-phone-btn:hover,
+.footer-phone-btn:focus {
   border: 1px solid #fafafa;
 }
 .footer-send-btn {
@@ -182,23 +174,10 @@
   color: #fafafa;
   border: none;
   margin-top: 16px;
-  margin-top: 32px;
-}
-.footer-send-btn:hover {
-  background-color: #e0373f;
 }
 .footer-phone-btn {
   width: 118px;
   height: 37px;
-}
-.footer-input {
-  width: 245px;
-  height: 44px;
-  border: none;
-  border-bottom: 1px solid rgba(250, 250, 250, 0.2);
-  background-color: transparent;
-  padding-bottom: 20px;
-  outline: none;
 }
 .work-together .container {
   padding-bottom: 32px;
@@ -207,7 +186,6 @@
   .work-together {
     background-position: right;
     background-repeat: no-repeat;
-    gap: -5px;
     position: relative;
     background-image: url('/img/work-together/elementtablet1x.webp');
   }
@@ -218,7 +196,9 @@
   }
   .footer-title {
     width: 542px;
-    height: 146px;
+  }
+  .work-together .container {
+    padding-bottom: 169px;
   }
   .footer-title-text {
     font-size: 64px;
@@ -231,12 +211,27 @@
     width: 70px;
     height: 70px;
   }
-
+  .footer-input {
+    width: 245px;
+  }
+  .footer-email-btn {
+    width: 239px;
+    padding: 18px 32px;
+    margin-right: 8px;
+  }
+  .footer-contact-details {
+    display: block;
+  }
+  .footer-phone-btn {
+    padding: 18px 32px;
+    width: 171px;
+  }
   .footer-form {
     display: flex;
     gap: 32px;
     flex-direction: row;
     align-items: center;
+    margin-top: 18px;
   }
   .footer-form-btn {
     display: flex;
@@ -247,12 +242,14 @@
     height: 150px;
     margin-top: 0;
   }
+  .footer-contact-details {
+    margin-top: 18px;
+  }
 }
 @media screen and (min-width: 1440px) {
   .work-together {
     background-position: right;
     background-repeat: no-repeat;
-    gap: -5px;
     position: relative;
     background-image: url('/img/work-together/elementdesctop1x.webp');
   }
@@ -265,6 +262,9 @@
     width: 150px;
     height: 150px;
     margin: 0;
+  }
+  .footer-label {
+    margin-bottom: 0;
   }
   .avatar {
     width: 70px;
@@ -292,11 +292,16 @@
   .footer-form {
     justify-content: space-between;
   }
+  .footer-contact-details {
+    margin-top: 0;
+  }
+  .work-together .container {
+    padding: 80px 196px 196px 196px;
+  }
 }
 .footer-modal {
   position: absolute;
 }
-
 .basicLightbox__placeholder {
   position: absolute;
   background-color: white;
@@ -308,7 +313,6 @@
   background-color: #1c1d20;
   z-index: 1000;
 }
-
 .modal-close {
   position: absolute;
   top: 10px;
@@ -319,7 +323,6 @@
   cursor: pointer;
   color: #333;
 }
-
 #modal-title {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 600;
@@ -330,7 +333,6 @@
   color: var(--main-text);
   margin-bottom: 16px;
 }
-
 #modal-text {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 500;
@@ -340,4 +342,3 @@
   text-align: center;
   color: rgba(250, 250, 250, 0.6);
 }
-/* .footer{\kp} */

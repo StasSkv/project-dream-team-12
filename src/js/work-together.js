@@ -1,6 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 let isModalOpen = false;
+let currentModalInstance = null;
 function showModal(message) {
   if (isModalOpen) return;
   const modal = basicLightbox.create(
@@ -12,6 +13,7 @@ function showModal(message) {
     {
       onShow: instance => {
         isModalOpen = true;
+        currentModalInstance = instance;
         document.body.classList.add('no-scroll');
         const closeButton = instance.element().querySelector('.modal-close');
         closeButton.addEventListener('click', () => {
@@ -26,10 +28,16 @@ function showModal(message) {
   );
   modal.show();
 }
+function handleEscKey(event) {
+  if (event.key === 'Escape' && isModalOpen && currentModalInstance) {
+    currentModalInstance.close();
+  }
+}
+document.addEventListener('keydown', handleEscKey);
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('#contact-form');
   const emailInput = form.querySelector('input[name="email"]');
-  const commentInput = form.querySelector('textarea[name="comment"]');
+  const commentInput = form.querySelector('input[name="comment"]');
   emailInput.value = localStorage.getItem('email') || '';
   commentInput.value = localStorage.getItem('comment') || '';
   function saveToLocalStorage() {
@@ -59,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return response.json();
       })
       .then(data => {
-        console.log('Успех:', data);
         showModal(data.message);
         localStorage.removeItem('email');
         localStorage.removeItem('comment');
