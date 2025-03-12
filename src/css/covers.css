@@ -8,13 +8,18 @@
  position: relative;
  overflow: hidden;
  width: 100%;
+ max-width: 1440px;
+ margin: 0 auto;
  padding: 20px 0;
 }
 
 .covers__container {
  display: flex;
  flex-direction: column;
+ width: 100%;
  gap: 10px;
+ max-width: 1440px;
+ margin: 0 auto;
  
 }
  
@@ -43,10 +48,11 @@
 
 
 .covers__item { 
-flex-shrink: 0;
- background: linear-gradient(90deg, #1c1d20 49.68%, #9f3626 67.73%, #e6533c 100%);
+flex-shrink: 0;  
+height: 100%;
+background: linear-gradient(to right, #1c1d20 50%, #9f3626 70%, #e6533c 100%);
  margin-right: 30px;
- animation-duration: 10s;
+ 
 }
  .covers__item img {
  width: 282px; 
@@ -68,14 +74,27 @@ to {
  
 /* ======= TABLET (768px) ======= */
 @media screen and (min-width: 768px) {
+  .covers {
+    max-width: 768px;
+  }
+  .covers__container{
+    max-width: 768px;
+  }
  .covers__item img {
  width: 544px;
  }
- 
+  
 }
 
 /* ======= DESKTOP (1440px) ======= */
 @media screen and (min-width: 1440px) {
+  .covers {
+    max-width: 1440px;
+    max-height: 960px;
+  }
+  .covers__container{
+    max-width: 1440px;
+  }
  .covers__item img {
   width: 544px;
  }

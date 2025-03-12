@@ -1,10 +1,11 @@
 import Accordion from 'accordion-js';
-import 'accordion-js/dist/accordion.min.css';
+import basicLightbox from 'basiclightbox';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import Swiper from 'swiper/bundle';
+import axios from 'axios';
 import 'swiper/css/bundle';
 import './js/header';
 import './js/hero';
