@@ -28,7 +28,6 @@ img {
     letter-spacing: -0.02em;
     text-transform: uppercase;
     color: rgba(250, 250, 250, 0.4);
-    margin: 64px 0 32px;
     text-align: left;
 }
 
@@ -142,11 +141,12 @@ img {
     gap: 12px;
     background-color: transparent;
     margin-top: 32px;
-   
+
 }
+
 .swiper-wrapper {
-    margin: 0; 
-    padding: 0; 
+    margin: 0;
+    padding: 0;
 }
 
 .swiper-button-prev,
@@ -249,6 +249,7 @@ img {
         font-size: 44px;
         line-height: 100%;
     }
+
     .swiper-button-prev,
     .swiper-button-next {
         padding: 18px;
@@ -265,7 +266,8 @@ img {
         width: 68px;
         height: 68px;
     }
-    .swiper-navigation-wrapper{
+
+    .swiper-navigation-wrapper {
         margin-top: 64px;
     }
 }
@@ -281,13 +283,15 @@ img {
         height: 625px;
         margin-left: 0 !important;
     }
+
     .swiper-navigation-wrapper {
-        margin-top: -66px; 
+        margin-top: -66px;
         display: flex;
         z-index: 10;
-        position: relative; 
+        position: relative;
         align-items: center;
     }
+
     .project-content {
         width: 50%;
         display: flex;
@@ -313,7 +317,7 @@ img {
         display: flex !important;
         align-items: flex-start;
         justify-content: flex-start !important;
-        height: 757px!important;
+        height: 757px !important;
     }
 
     .swiper-slide {
