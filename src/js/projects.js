@@ -14,12 +14,56 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    // Убираем управление кнопками Swiper
+    function removeSwiperControlFromButtons() {
+        prevButton.classList.remove("swiper-button-prev", "swiper-button-disabled");
+        nextButton.classList.remove("swiper-button-next", "swiper-button-disabled");
+        prevButton.removeAttribute("disabled");
+        nextButton.removeAttribute("disabled");
+    }
+
+    // Функция для обновления состояния кнопок
+    function updateNavigationButtons(swiper) {
+        if (swiper.isBeginning) {
+            prevButton.classList.add("swiper-button-disabled");
+            prevButton.setAttribute("disabled", "true");
+        } else {
+            prevButton.classList.remove("swiper-button-disabled");
+            prevButton.removeAttribute("disabled");
+        }
+
+        if (swiper.isEnd) {
+            nextButton.classList.add("swiper-button-disabled");
+            nextButton.setAttribute("disabled", "true");
+        } else {
+            nextButton.classList.remove("swiper-button-disabled");
+            nextButton.removeAttribute("disabled");
+        }
+    }
+
+    // Функция для обновления макета слайдов
+    function updateSlideLayout() {
+        swiperContainer.style.overflow = "hidden";
+        const slides = document.querySelectorAll(".swiper-slide");
+
+        slides.forEach(slide => {
+            slide.style.display = "flex";
+            slide.style.width = "100%";
+            slide.style.height = "auto";
+            slide.style.flexDirection = "column";
+            slide.style.alignItems = "center";
+            slide.style.justifyContent = "center";
+        });
+    }
+
+    // Устанавливаем позиционирование кнопок
     function fixButtonPosition(button) {
         button.style.display = "flex";
         button.style.alignItems = "center";
         button.style.justifyContent = "center";
         button.style.position = "relative";
         button.style.borderRadius = "60px";
+        button.style.backgroundColor = "transparent"; // Фон кнопки прозрачный
 
         if (window.innerWidth >= 768) {
             button.style.border = "1px solid rgba(250, 250, 250, 0.2)";
@@ -53,144 +97,82 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".button-class").forEach(fixButtonPosition);
     });
 
-    function updateNavigationButtons(swiper) {
-        prevButton.disabled = swiper.isBeginning;
-        nextButton.disabled = swiper.isEnd;
-
-        prevButton.classList.toggle("disabled", swiper.isBeginning);
-        nextButton.classList.toggle("disabled", swiper.isEnd);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const extraNavWrapper = document.querySelector(".swiper-navigation-wrapper");
-        if (extraNavWrapper) {
-            extraNavWrapper.remove();
-            console.log("🚀 Удалён .swiper-navigation-wrapper перед инициализацией Swiper.");
-        }
-    });
-function updateSlideLayout() {
-    swiperContainer.style.overflow = "hidden";
-    const slides = document.querySelectorAll(".swiper-slide");
-
-    slides.forEach(slide => {
-        slide.style.display = "flex";
-        slide.style.width = "100%";
-        slide.style.height = "auto";
-        slide.style.flexDirection = "column";
-        slide.style.alignItems = "center";
-        slide.style.justifyContent = "center";
-    });
-
-    if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-        const imageWrappers = document.querySelectorAll(".project-image-wrapper");
-        imageWrappers.forEach(wrapper => {
-            wrapper.style.paddingTop = "120px";
-            wrapper.style.paddingBottom = "120px";
-        });
-    }
-    function updateSlideLayout() {
-        swiperContainer.style.overflow = "hidden";
-        const slides = document.querySelectorAll(".swiper-slide");
-    
-        slides.forEach(slide => {
-            slide.style.display = "flex";
-            slide.style.width = "100%";
-            slide.style.height = "auto";
-            slide.style.flexDirection = "column";
-            slide.style.alignItems = "center";
-            slide.style.justifyContent = "center";
-        });
-    
-        const imageWrappers = document.querySelectorAll(".project-image-wrapper");
-        imageWrappers.forEach(wrapper => {
-            if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-                wrapper.style.paddingTop = "120px";
-                wrapper.style.paddingBottom = "120px";
-            }
-    
-            // Добавляем боковые отступы на мобильных устройствах
-            if (window.innerWidth < 768) {
-                wrapper.style.paddingLeft = "0px";
-                wrapper.style.paddingRight = "0px";
-            }
-        });
-    }
-    
-}
-const swiper = new Swiper(".swiper-container", {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: false,
-    centeredSlides: true,
-    keyboard: {
-        enabled: true,
-        onlyInViewport: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-        0: { slidesPerView: "auto", spaceBetween: 20 }, // 🔥 Исправлено для мобилок
-        768: { slidesPerView: 1, spaceBetween: 32 },
-        1440: { slidesPerView: 1, spaceBetween: 32 },
-    },
-    on: {
-        init: function (swiper) {
-            moveNavigationButtons();
-            updateNavigationButtons(swiper);
-            updateSlideLayout();
-            updateSlideVisibility(swiper);
+    // Инициализация Swiper
+    const swiper = new Swiper(".swiper-container", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: false,
+        centeredSlides: true,
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
         },
-        slideChange: function (swiper) {
-            updateNavigationButtons(swiper);
-            updateSlideVisibility(swiper);
+        breakpoints: {
+            0: { slidesPerView: "auto", spaceBetween: 20 },
+            768: { slidesPerView: 1, spaceBetween: 32 },
+            1440: { slidesPerView: 1, spaceBetween: 32 },
         },
-        resize: function () {
-            updateSlideLayout();
-        }
-    },
-});
+        on: {
+            init: function (swiper) {
+                moveNavigationButtons();
+                updateNavigationButtons(swiper); // Обновляем состояние кнопок при инициализации
+                updateSlideLayout();
+                updateSlideVisibility(swiper);
+                removeSwiperControlFromButtons(); // Убираем управление кнопками Swiper
+            },
+            slideChange: function (swiper) {
+                updateNavigationButtons(swiper); // Обновляем состояние кнопок при смене слайда
+                updateSlideVisibility(swiper);
+                updateArrowColors(swiper); // Обновляем цвет стрелок в зависимости от состояния слайда
+            },
+            resize: function () {
+                updateSlideLayout();
+            }
+        },
+    });
 
-
+    // Перемещаем кнопки в контейнер
     function moveNavigationButtons() {
-        let navigationContainer = document.querySelector(".swiper-navigation");
+        let navigationContainer = document.querySelector(".swiper-navigation-wrapper");
 
         if (!navigationContainer) {
             navigationContainer = document.createElement("div");
-            navigationContainer.classList.add("swiper-navigation");
+            navigationContainer.classList.add("swiper-navigation-wrapper");
             swiperWrapper.parentNode.insertBefore(navigationContainer, swiperWrapper.nextSibling);
         }
-
-        navigationContainer.style.display = "flex";
-        navigationContainer.style.justifyContent = "center";
-        navigationContainer.style.alignItems = "center";
-        navigationContainer.style.width = "100%";
-        navigationContainer.style.position = "relative";
-        navigationContainer.style.zIndex = "10";
-        navigationContainer.style.marginTop = "0px";
-
-        function updateButtonSpacing() {
-            if (window.innerWidth >= 1440) {
-                navigationContainer.style.marginTop = "80px";
-            } else if (window.innerWidth >= 768 && window.innerWidth < 1440) {
-                navigationContainer.style.marginTop = "64px";
-            } else {
-                navigationContainer.style.marginTop = "48px";
-            }
-        }
-
-        updateButtonSpacing();
-        window.addEventListener("resize", updateButtonSpacing);
-
-        swiperContainer.style.overflow = "visible";
-        swiperWrapper.style.overflow = "visible";
 
         if (!navigationContainer.contains(prevButton)) {
             navigationContainer.appendChild(prevButton);
         }
         if (!navigationContainer.contains(nextButton)) {
             navigationContainer.appendChild(nextButton);
+        }
+    }
+
+    // Ручное управление кнопками:
+    prevButton.addEventListener("click", function () {
+        swiper.slidePrev(); // Переход к предыдущему слайду
+    });
+
+    nextButton.addEventListener("click", function () {
+        swiper.slideNext(); // Переход к следующему слайду
+    });
+
+    // Функция для обновления цвета стрелок в зависимости от слайда
+    function updateArrowColors(swiper) {
+        const prevSvg = prevButton.querySelector("svg use");
+        const nextSvg = nextButton.querySelector("svg use");
+
+        if (swiper.isBeginning) {
+            prevSvg.setAttribute("href", "/img/icons.svg#icon-arrow-left"); // Стрелка неактивна, оставляем стандартную
+        } else {
+            prevSvg.setAttribute("href", "/img/icons.svg#icon-arrow-left"); // Включаем активный цвет для стрелки
+        }
+
+        if (swiper.isEnd) {
+            nextSvg.setAttribute("href", "/img/icons.svg#icon-arrow-right"); // Стрелка неактивна
+        } else {
+            nextSvg.setAttribute("href", "/img/icons.svg#icon-arrow-right"); // Стрелка активна
         }
     }
 
