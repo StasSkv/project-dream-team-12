@@ -1,5 +1,5 @@
 import Accordion from 'accordion-js';
-import basicLightbox from 'basiclightbox';
+import * as basicLightbox from 'basiclightbox';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
