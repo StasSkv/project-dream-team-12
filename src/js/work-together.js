@@ -1,54 +1,92 @@
-// import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/dist/basicLightbox.min.css';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
-// export function showModal(message) {
-//   const modal = basicLightbox.create(
-//     `
-//     <div class="basicLightbox__placeholder">
-//       <button class="modal-close">&times;</button>
-//       <h2>${message}</h2>
-//     </div>
-//   `,
-//     {
-//       onShow: instance => {
-//         const closeButton = instance.element().querySelector('.modal-close');
-//         closeButton.addEventListener('click', () => instance.close());
-//       },
-//     }
-//   );
+let isModalOpen = false;
 
-//   modal.show();
-// }
+function showModal(message) {
+  if (isModalOpen) return;
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const form = document.querySelector('.footer-form');
+  const modal = basicLightbox.create(
+    `
+      <button class="modal-close">&times;</button>
+      <p id="modal-title">Thank you for your interest in cooperation!</p>
+      <p id="modal-text">The manager will contact you shortly to discuss further details and opportunities for cooperation. Please stay in touch.</p>
+    `,
+    {
+      onShow: instance => {
+        isModalOpen = true;
+        const closeButton = instance.element().querySelector('.modal-close');
+        closeButton.addEventListener('click', () => {
+          instance.close();
+          isModalOpen = false;
+        });
+      },
+      onClose: () => {
+        isModalOpen = false;
+      },
+    }
+  );
 
-//   if (!form) {
-//     console.error('Форма с id="contact-form" не найдена!');
-//     return;
-//   }
+  modal.show();
+}
 
-//   form.addEventListener('submit', function (e) {
-//     e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('#contact-form');
+  const emailInput = form.querySelector('input[name="email"]');
+  const commentInput = form.querySelector('textarea[name="comment"]');
 
-//     const email = form.querySelector('input[name="email"]').value.trim();
-//     const comment = form.querySelector('textarea[name="text"]').value.trim();
+  // Функция сохранения в localStorage при вводе
+  function saveToLocalStorage() {
+    localStorage.setItem('email', emailInput.value.trim());
+    localStorage.setItem('comment', commentInput.value.trim());
+  }
 
-//     if (!email || !comment) {
-//       console.error('Email или комментарий не заполнены!');
-//       showModal('Пожалуйста, заполните оба поля — Email и комментарий.');
-//       return;
-//     }
+  // Восстанавливаем данные из localStorage при загрузке страницы
+  emailInput.value = localStorage.getItem('email') || '';
+  commentInput.value = localStorage.getItem('comment') || '';
 
-//     xhr.onreadystatechange = function () {
-//       if (xhr.readyState === 4) {
-//         if (xhr.status === 200) {
-//           const data = JSON.parse(xhr.responseText);
-//           console.
-//       }
-//     };
+  // Добавляем обработчики ввода для сохранения данных в localStorage
+  emailInput.addEventListener('input', saveToLocalStorage);
+  commentInput.addEventListener('input', saveToLocalStorage);
 
-//     const requestData = JSON.stringify({ email, comment });
-//     xhr.send(requestData);
-//   });
-// });
+  // Обработчик отправки формы
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const email = emailInput.value.trim();
+    const comment = commentInput.value.trim();
+
+    if (!email || !comment) {
+      console.error('Email або коментар не заповнені!');
+      showModal('Пожалуйста, заповніть обидва поля — Email та коментар.');
+      return;
+    }
+
+    // Создаем объект для отправки
+    const requestData = { email, comment };
+
+    // Отправка запроса через fetch
+    fetch('https://portfolio-js.b.goit.study/api/requests', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestData),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Успех:', data);
+        showModal(data.message);
+        form.reset();
+        localStorage.removeItem('email');
+        localStorage.removeItem('comment');
+      })
+      .catch(error => {
+        console.error('Ошибка:', error.message);
+        showModal('Упс! Щось пішло не так. Перевірте введені дані.');
+      });
+  });
+});

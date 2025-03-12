@@ -13,15 +13,15 @@
           media="(max-width: 767px)"
           srcset="
             /img/work-together/imagemobaile1x.webp,
-            ../img/work-together/imagemobaile2x.webp
+            /img/work-together/imagemobaile2x.webp
           "
         />
+        <img
+          src="/img/work-together/imagemobaile1x.webp"
+          alt="User Photo"
+          class="avatar"
+        />
       </picture>
-      <img
-        src="/img/work-together/imagemobaile1x.webp"
-        alt="User Photo"
-        class="avatar"
-      />
       <p class="footer-title-text">
         LET’S <span class="footer-highlight">WORK</span>
       </p>
@@ -33,6 +33,7 @@
       <label for="email" class="footer-label">
         <input
           type="email"
+          id="email"
           name="email"
           class="footer-input"
           placeholder="clients@gmail.com"
@@ -40,21 +41,21 @@
         />
       </label>
       <label for="comment" class="footer-label">
-        <input
-          type="text"
+        <textarea
+          id="comment"
           name="comment"
           class="footer-input"
           placeholder="Your comments"
           required
-        />
+        ></textarea>
       </label>
       <button class="footer-send-btn" type="submit">Send</button>
     </form>
 
     <div class="footer-contact-details">
-      <a class="footer-email-btn" href="mailto:lloydjefferson@gmail.com"
-        >lloydjefferson@gmail.com</a
-      >
+      <a class="footer-email-btn" href="mailto:lloydjefferson@gmail.com">
+        lloydjefferson@gmail.com
+      </a>
       <a class="footer-phone-btn" href="tel:+380111111111">+380 11 1111 111</a>
     </div>
   </div>
