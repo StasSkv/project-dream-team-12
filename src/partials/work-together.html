@@ -27,7 +27,7 @@
       </p>
     </div>
     <p class="footer-together">together</p>
-    <form action="" class="footer-form" id="contact-form">
+    <!-- <form action="" class="footer-form" id="contact-form">
       <label for="email" class="footer-label">
         <input
           type="email"
@@ -46,6 +46,31 @@
           placeholder="Your comments"
           required
         ></textarea>
+      </label>
+      <button class="footer-send-btn" type="submit">Send</button>
+    </form> -->
+
+    <form action="" class="footer-form" id="contact-form">
+      <label for="email" class="footer-label">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="footer-input"
+          placeholder="clients@gmail.com"
+          required
+        />
+        <p class="form-message" id="email-message"></p>
+      </label>
+      <label for="comment" class="footer-label">
+        <textarea
+          id="comment"
+          name="comment"
+          class="footer-input"
+          placeholder="Your comments"
+          required
+        ></textarea>
+        <p class="form-message" id="comment-message"></p>
       </label>
       <button class="footer-send-btn" type="submit">Send</button>
     </form>

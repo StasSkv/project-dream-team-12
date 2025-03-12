@@ -12,6 +12,21 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
+.success-message {
+  color: green;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.footer-label {
+  margin-bottom: 16px;
+}
 .no-scroll {
   overflow: hidden;
   height: 100vh;
@@ -152,6 +167,10 @@
   padding: 10px 12px;
 }
 
+.footer-email-btn:hover,
+.footer-phone-btn:hover {
+  border: 1px solid #fafafa;
+}
 .footer-send-btn {
   width: 100px;
   height: 100px;
@@ -163,6 +182,10 @@
   color: #fafafa;
   border: none;
   margin-top: 16px;
+  margin-top: 32px;
+}
+.footer-send-btn:hover {
+  background-color: #e0373f;
 }
 .footer-phone-btn {
   width: 118px;
