@@ -314,7 +314,7 @@
 }
 
 .about-swiper-container .about-me-swiper__slide {
-    height: calc(50vw - 58px);
+    height: 130px;
     border: 1px solid #fafafa33;
     border-radius: 50%;
     display: flex;
