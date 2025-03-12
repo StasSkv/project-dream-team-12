@@ -9,6 +9,7 @@
  overflow: hidden;
  width: 100%;
  max-width: 1440px;
+ max-height: 508px;
  margin: 0 auto;
  padding: 20px 0;
 }
@@ -76,6 +77,7 @@ to {
 @media screen and (min-width: 768px) {
   .covers {
     max-width: 768px;
+    max-height: 960px;
   }
   .covers__container{
     max-width: 768px;
