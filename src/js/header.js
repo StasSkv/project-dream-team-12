@@ -37,3 +37,13 @@ function closeModalMenu(event) {
     document.body.classList.remove('no-scroll');
   }
 }
+
+document.addEventListener('keydown', event => {
+  if (
+    event.key === 'Escape' &&
+    refs.modal.classList.contains('modal-is-visible')
+  ) {
+    refs.modal.classList.remove('modal-is-visible');
+    document.body.classList.remove('no-scroll');
+  }
+});
