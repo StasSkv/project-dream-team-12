@@ -57,7 +57,6 @@
 
 @media only screen and (min-width: 768px) {
     .description-text-wrapper {
-        width: 704px;
         height: 700px;
         padding: 64px 64px 0 64px;
     }
@@ -86,7 +85,7 @@
 }
 
 .description-text-red {
-    color: #ed3b44;
+    color: var(--red-accent);
 }
 
 .description-text-grey {
@@ -95,8 +94,6 @@
 
 .about-me-img {
     border-radius: 24px;
-    width: 343px;
-    height: 500px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -256,6 +253,11 @@
     color: var(--transparent-text-color);
     background-color: transparent;
     cursor: auto;
+    border: 1px solid rgba(250, 250, 250, 0.2);
+        border-radius: 100px;
+        padding: 9px;
+        width: 36px;
+        height: 36px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -272,11 +274,13 @@
 
 .show-btn-icon {
     stroke: #fafafa;
-    border: 1px solid rgba(250, 250, 250, 0.2);
-    border-radius: 100px;
-    padding: 9px;
-    width: 36px;
-    height: 36px;
+}
+
+@media screen and(min-width:768px) {
+    .show-btn-icon {
+            width: 20px;
+            height: 20px;
+        }
 }
 
 .about-swiper-container {
@@ -347,8 +351,6 @@
 }
 
 .about-me-swiper__next {
-    width: 28px;
-    height: 28px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
