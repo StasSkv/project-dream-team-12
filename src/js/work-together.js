@@ -44,13 +44,7 @@
 //       if (xhr.readyState === 4) {
 //         if (xhr.status === 200) {
 //           const data = JSON.parse(xhr.responseText);
-//           console.log('Успех:', data);
-//           showModal('Ваш запрос был успешно отправлен!');
-//           form.reset();
-//         } else {
-//           console.error('Ошибка:', xhr.status, xhr.statusText);
-//           showModal('Упс! Что-то пошло не так. Попробуйте позже.');
-//         }
+//           console.
 //       }
 //     };
 
