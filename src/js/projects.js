@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Убираем управление кнопками Swiper
+    
     function removeSwiperControlFromButtons() {
         prevButton.classList.remove("swiper-button-prev", "swiper-button-disabled");
         nextButton.classList.remove("swiper-button-next", "swiper-button-disabled");
@@ -22,32 +22,32 @@ document.addEventListener("DOMContentLoaded", function () {
         nextButton.removeAttribute("disabled");
     }
 
-    // Функция для обновления состояния кнопок
+   
     function updateNavigationButtons(swiper) {
-        // Обновление состояния левой стрелки
+        
         if (swiper.isBeginning) {
             prevButton.classList.add("swiper-button-disabled");
-            prevButton.setAttribute("disabled", "true"); // Левая стрелка неактивна на первом слайде
-            prevButton.style.opacity = "0.4";  // Делает стрелку бледной
+            prevButton.setAttribute("disabled", "true"); 
+            prevButton.style.opacity = "0.4"; 
         } else {
             prevButton.classList.remove("swiper-button-disabled");
-            prevButton.removeAttribute("disabled"); // Левая стрелка активна
-            prevButton.style.opacity = "1";  // Восстанавливаем яркость
+            prevButton.removeAttribute("disabled");
+            prevButton.style.opacity = "1"; 
         }
 
-        // Обновление состояния правой стрелки
+        
         if (swiper.isEnd) {
             nextButton.classList.add("swiper-button-disabled");
-            nextButton.setAttribute("disabled", "true"); // Правая стрелка неактивна на последнем слайде
-            nextButton.style.opacity = "0.4";  // Делает стрелку бледной
+            nextButton.setAttribute("disabled", "true"); 
+            nextButton.style.opacity = "0.4"; 
         } else {
             nextButton.classList.remove("swiper-button-disabled");
-            nextButton.removeAttribute("disabled"); // Правая стрелка активна
-            nextButton.style.opacity = "1";  // Восстанавливаем яркость
+            nextButton.removeAttribute("disabled"); 
+            nextButton.style.opacity = "1";  
         }
     }
 
-    // Функция для обновления макета слайдов
+    
     function updateSlideLayout() {
         swiperContainer.style.overflow = "hidden";
         const slides = document.querySelectorAll(".swiper-slide");
@@ -62,14 +62,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Устанавливаем позиционирование кнопок и их стиль
+    
     function fixButtonPosition(button) {
         button.style.display = "flex";
         button.style.alignItems = "center";
         button.style.justifyContent = "center";
         button.style.position = "relative";
         button.style.borderRadius = "60px";
-        button.style.backgroundColor = "transparent"; // Прозрачный фон
+        button.style.backgroundColor = "transparent"; 
 
         if (window.innerWidth >= 768) {
             button.style.border = "1px solid rgba(250, 250, 250, 0.2)";
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fixButtonPosition(prevButton);
     fixButtonPosition(nextButton);
 
-    // Инициализация Swiper без привязки кнопок
+    
     const swiper = new Swiper(".swiper-container", {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -113,13 +113,13 @@ document.addEventListener("DOMContentLoaded", function () {
         on: {
             init: function (swiper) {
                 moveNavigationButtons();
-                updateNavigationButtons(swiper); // Обновляем состояние кнопок при инициализации
+                updateNavigationButtons(swiper); 
                 updateSlideLayout();
                 updateSlideVisibility(swiper);
-                removeSwiperControlFromButtons(); // Убираем управление кнопками Swiper
+                removeSwiperControlFromButtons(); 
             },
             slideChange: function (swiper) {
-                updateNavigationButtons(swiper); // Обновляем состояние кнопок при смене слайда
+                updateNavigationButtons(swiper); 
                 updateSlideVisibility(swiper);
             },
             resize: function () {
@@ -128,18 +128,18 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     });
 
-    // Перемещаем кнопки в контейнер
+    
     function moveNavigationButtons() {
         let navigationContainer = document.querySelector(".swiper-navigation-wrapper");
 
-        // Если контейнер .swiper-navigation-wrapper не существует, создаём его
+        
         if (!navigationContainer) {
             navigationContainer = document.createElement("div");
             navigationContainer.classList.add("swiper-navigation-wrapper");
             swiperWrapper.parentNode.insertBefore(navigationContainer, swiperWrapper.nextSibling);
         }
 
-        // Перемещаем кнопки в .swiper-navigation-wrapper
+        
         if (!navigationContainer.contains(prevButton)) {
             navigationContainer.appendChild(prevButton);
         }
@@ -148,13 +148,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Ручное управление кнопками:
+   
     prevButton.addEventListener("click", function () {
-        swiper.slidePrev(); // Переход к предыдущему слайду
+        swiper.slidePrev(); 
     });
 
     nextButton.addEventListener("click", function () {
-        swiper.slideNext(); // Переход к следующему слайду
+        swiper.slideNext(); 
     });
 
     function updateSlideVisibility(swiper) {

@@ -50,12 +50,12 @@ img {
     height: 812px;
     border-radius: 24px;
     overflow: hidden;
-    background-color: #fafafa;
+    background-color: var(--main-text);
 }
 
 /* Контент карточки */
 .project-content {
-    background-color: #fafafa;
+    background-color: var(--main-text);
     min-height: 417px;
     width: 100%;
     padding: 32px;
@@ -142,8 +142,12 @@ img {
     gap: 12px;
     background-color: transparent;
     margin-top: 32px;
+   
 }
-
+.swiper-wrapper {
+    margin: 0; 
+    padding: 0; 
+}
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -173,12 +177,12 @@ img {
     width: 24px;
     height: 24px;
     stroke-width: 2;
-    stroke: #fafafa;
+    stroke: var(--main-text);
     fill: transparent;
 }
 
 .icons {
-    stroke: #fafafa;
+    stroke: var(--main-text);
 }
 
 /* Убираем встроенные кнопки Swiper */
@@ -218,7 +222,7 @@ img {
     }
 
     .projects-title {
-        margin-left: 32px;
+
         margin-bottom: 32px;
     }
 
@@ -245,11 +249,6 @@ img {
         font-size: 44px;
         line-height: 100%;
     }
-
-    .swiper-navigation-wrapper {
-        margin-top: 64px;
-    }
-
     .swiper-button-prev,
     .swiper-button-next {
         padding: 18px;
@@ -266,6 +265,9 @@ img {
         width: 68px;
         height: 68px;
     }
+    .swiper-navigation-wrapper{
+        margin-top: 64px;
+    }
 }
 
 /* ✅ Десктоп (1440px+) */
@@ -279,7 +281,13 @@ img {
         height: 625px;
         margin-left: 0 !important;
     }
-
+    .swiper-navigation-wrapper {
+        margin-top: -66px; 
+        display: flex;
+        z-index: 10;
+        position: relative; 
+        align-items: center;
+    }
     .project-content {
         width: 50%;
         display: flex;
@@ -305,7 +313,7 @@ img {
         display: flex !important;
         align-items: flex-start;
         justify-content: flex-start !important;
-        height: 813px !important;
+        height: 757px!important;
     }
 
     .swiper-slide {
