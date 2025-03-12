@@ -38,17 +38,17 @@ const swiperAboutMe = new Swiper('.about-me-swiper', {
 
 import Accordion from 'accordion-js'; 
 
-new Accordion('.accordion-container', { 
+new Accordion('.about-acc-container', { 
   elementClass: 'about-acc-list', 
-  triggerClass: 'show-btn-icon', 
-  panelClass: 'ac-panel', 
+  triggerClass: 'about-acc-btn', 
+  panelClass: 'about-ac-panel', 
   showMultiple: true, 
   duration: 800, 
   openOnInit: [0], 
   beforeOpen: el => 
-    el.querySelector('button.ac-trigger').setAttribute('aria-expanded', true), 
+    el.querySelector('button.about-acc-btn').setAttribute('aria-expanded', true), 
   beforeClose: el => 
-    el.querySelector('button.ac-trigger').setAttribute('aria-expanded', false), 
+    el.querySelector('button.about-acc-btn').setAttribute('aria-expanded', false), 
 }); 
 
  
