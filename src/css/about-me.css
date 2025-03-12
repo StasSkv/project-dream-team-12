@@ -240,7 +240,6 @@
     max-width: 369px;
 }
 
-/* .ac-trigger */
 .about-acc-btn {
     display: flex;
     justify-content: space-between;
@@ -263,14 +262,13 @@
 }
 
 @media only screen and (min-width: 768px) {
-    /* .ac-trigger */
     .about-acc-btn {
         width: 40px;
         height: 40px;
     }
 }
 
-/* .ac-trigger */
+
  .about-acc-btn:active {
     border: 1px solid rgba(250, 250, 250, 0.5);
     transition: color 0.3s ease-in-out;
