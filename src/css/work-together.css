@@ -370,3 +370,23 @@
     max-width: 364px;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .work-together .container {
+    padding-top: 88px;
+    padding-bottom: 169px;
+  }
+  .footer-contact-details {
+    margin-top: 0;
+    display: flex;
+  }
+
+  .footer-phone-btn {
+    display: block;
+    padding: 18px 32px;
+    flex-wrap: nowrap;
+  }
+  .footer-phone-btn {
+    height: auto;
+  }
+}
