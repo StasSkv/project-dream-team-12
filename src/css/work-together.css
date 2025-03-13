@@ -174,7 +174,14 @@
   color: #fafafa;
   border: none;
   margin-top: 16px;
+  transition: background-color 0.3s ease-in-out;
 }
+
+.footer-send-btn:hover,
+.footer-send-btn:focus {
+  background-color: #e0373f;
+}
+
 .footer-phone-btn {
   width: 118px;
   height: 37px;
@@ -341,4 +348,25 @@
   letter-spacing: -0.02em;
   text-align: center;
   color: rgba(250, 250, 250, 0.6);
+}
+
+.modal-close {
+  color: var(--main-text);
+}
+
+.footer-input {
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+  .basicLightbox__placeholder {
+    width: 492px;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  .work-together #modal-text {
+    max-width: 364px;
+  }
 }

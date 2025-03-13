@@ -1,8 +1,3 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 .covers {
   position: relative;
   overflow: hidden;
@@ -41,14 +36,15 @@
   width: 300%;
   will-change: transform;
   animation-duration: 70s !important;
+  animation-iteration-count: infinite;
   margin-bottom: 30px;
 }
 
 .covers__item {
   flex-shrink: 0;
-  height: 100%;
+  height: 163px;
   background: linear-gradient(to right, #1c1d20 50%, #9f3626 70%, #e6533c 100%);
-  margin-right: 30px;
+  margin-right: 20px;
 }
 .covers__item img {
   width: 282px;
@@ -78,8 +74,15 @@
   .covers__item img {
     width: 544px;
   }
-}
 
+  .covers__item {
+    height: 314px;
+  }
+
+  .covers__list {
+    margin-bottom: 60px;
+  }
+}
 /* ======= DESKTOP (1440px) ======= */
 @media screen and (min-width: 1440px) {
   .covers {

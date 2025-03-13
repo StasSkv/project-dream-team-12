@@ -1,8 +1,7 @@
 import Swiper from 'swiper';
 import 'swiper/css/navigation';
-
+import Accordion from 'accordion-js';
 import { Keyboard, Mousewheel, Navigation } from 'swiper/modules';
-
 const swiperAboutMe = new Swiper('.about-me-swiper', {
   modules: [Navigation, Keyboard, Mousewheel],
   navigation: {
@@ -33,22 +32,32 @@ const swiperAboutMe = new Swiper('.about-me-swiper', {
     },
   },
 });
-
-import Accordion from 'accordion-js';
-
-new Accordion('.about-acc-container', {
+function updateSlideHeights() {
+  const slides = document.querySelectorAll('.swiper-slide');
+  const aspectRatio = 1 / 1;
+  if (window.innerWidth <= 768) {
+    slides.forEach(slide => {
+      const width = slide.offsetWidth;
+      const height = width / aspectRatio;
+      slide.style.height = `${height}px`;
+    });
+  } else {
+    slides.forEach(slide => {
+      slide.style.height = '';
+    });
+  }
+}
+updateSlideHeights();
+window.addEventListener('resize', updateSlideHeights);
+new Accordion('.about-me-accordion-container', {
   elementClass: 'about-acc-list',
-  triggerClass: 'about-acc-btn',
-  panelClass: 'about-ac-panel',
+  triggerClass: 'ac-trigger',
+  panelClass: 'ac-panel',
   showMultiple: true,
   duration: 800,
   openOnInit: [0],
   beforeOpen: el =>
-    el
-      .querySelector('button.about-acc-btn')
-      .setAttribute('aria-expanded', true),
+    el.querySelector('button.ac-trigger').setAttribute('aria-expanded', true),
   beforeClose: el =>
-    el
-      .querySelector('button.about-acc-btn')
-      .setAttribute('aria-expanded', false),
+    el.querySelector('button.ac-trigger').setAttribute('aria-expanded', false),
 });
