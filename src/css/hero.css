@@ -41,6 +41,12 @@
   }
 }
 
+
+.hero-background .container {
+  padding-top: 281px;
+  padding-bottom: 32px;
+}
+
 .hero-title {
   font-weight: 500;
   font-size: 50px;
@@ -48,7 +54,6 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--main-text);
-  padding-top: 281px;
   margin-bottom: 212px;
 }
 
@@ -59,6 +64,10 @@
     width: 632px;
     margin-bottom: 187px;
   }
+
+  .hero-background .container {
+  padding-top: 300px;
+}
 }
 
 @media screen and (min-width: 1440px) {
@@ -76,7 +85,6 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 4px;
-  padding-bottom: 32px;
 }
 
 @media screen and (min-width: 768px) {
