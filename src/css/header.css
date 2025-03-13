@@ -140,11 +140,20 @@ html {
     transition: transform 0.3s ease-in-out;
   }
 
-  .header-menu-link:hover::after,
+
+
+
+
+    .header-menu-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
   .header-menu-link:focus::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+
 
   .is-visible {
     display: flex;
