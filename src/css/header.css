@@ -122,6 +122,15 @@ html {
     transition: color 0.3s ease;
   }
 
+  .header-menu-link {
+    position: relative;
+  }
+
+  .header-menu-link:hover,
+  .header-menu-link:focus {
+    color: var(--red-accent);
+  }
+
   .header-menu-link::after {
     content: '';
     position: absolute;
@@ -139,11 +148,6 @@ html {
   .header-menu-link:focus::after {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
-
-  .header-menu-link:hover,
-  .header-menu-link:focus {
-    color: var(--red-accent);
   }
 
   .is-visible {
@@ -228,6 +232,10 @@ html {
   position: relative;
   display: inline-block;
   transition: color 0.3s ease;
+}
+
+.header-modal-menu-link {
+  position: relative;
 }
 
 .header-modal-menu-link:hover,
