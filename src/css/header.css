@@ -122,11 +122,6 @@ html {
     transition: color 0.3s ease;
   }
 
-  .header-menu-link:hover,
-  .header-menu-link:focus {
-    color: var(--red-accent);
-  }
-
   .header-menu-link::after {
     content: '';
     position: absolute;
@@ -140,20 +135,16 @@ html {
     transition: transform 0.3s ease-in-out;
   }
 
-
-
-
-
-    .header-menu-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
+  .header-menu-link:hover::after,
   .header-menu-link:focus::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
 
+  .header-menu-link:hover,
+  .header-menu-link:focus {
+    color: var(--red-accent);
+  }
 
   .is-visible {
     display: flex;
